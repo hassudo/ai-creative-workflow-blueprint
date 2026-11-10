@@ -1,0 +1,34 @@
+[
+  {
+    "id": "act_1041",
+    "name": "Harbor Dental",
+    "vertical": "Local services / lead-gen",
+    "currency": "USD",
+    "target_cpa": 120.0,
+    "monthly_budget": 30000.0
+  },
+  {
+    "id": "act_2087",
+    "name": "NorthPeak Outdoors",
+    "vertical": "Ecommerce / DTC",
+    "currency": "USD",
+    "target_cpa": 45.0,
+    "monthly_budget": 55000.0
+  },
+  {
+    "id": "act_3310",
+    "name": "Calder Foundation",
+    "vertical": "Nonprofit / fundraising",
+    "currency": "USD",
+    "target_cpa": 75.0,
+    "monthly_budget": 50000.0
+  },
+  {
+    "id": "act_4155",
+    "name": "Brightline Tutoring",
+    "vertical": "Education / local lead-gen",
+    "currency": "USD",
+    "target_cpa": 55.0,
+    "monthly_budget": 21000.0
+  }
+]

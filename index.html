@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CerealBox — AI Automation &amp; Creative Workflow Blueprint</title>
+<style>
+:root{
+  --bg:#0a0c11; --panel:#12161e; --panel2:#171c26; --line:#242b38; --line2:#2e3646;
+  --text:#e9ecf1; --muted:#9aa4b6; --dim:#6c7789;
+  --accent:#f2a03d; --accent2:#e57a5c; --green:#49c99b; --red:#e8695c; --amber:#e7b95a;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--sans);background:var(--bg);color:var(--text);
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(900px 500px at 15% -8%,rgba(242,160,61,.10),transparent 60%),
+                   radial-gradient(800px 500px at 95% 0%,rgba(229,122,92,.07),transparent 55%);
+  background-repeat:no-repeat;
+}
+h1,h2,h3,h4{font-weight:600;letter-spacing:-.015em}
+a{color:var(--accent)}
+code,.mono{font-family:var(--mono);font-size:.92em}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(10,12,17,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px}
+.logo{width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 1px rgba(255,255,255,.08) inset}
+.brand small{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:500}
+nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+nav button{
+  background:none;border:1px solid transparent;color:var(--muted);padding:7px 11px;border-radius:8px;
+  font:inherit;font-size:12.5px;cursor:pointer;transition:.15s;white-space:nowrap
+}
+nav button:hover{color:var(--text);background:var(--panel)}
+nav button.active{color:var(--text);background:var(--panel);border-color:var(--line2)}
+.stamp{font-family:var(--mono);font-size:10.5px;color:var(--dim);white-space:nowrap}
+.wrap{max-width:1200px;margin:0 auto;padding:44px 24px 90px}
+section{display:none;scroll-margin-top:78px}
+section.active{display:block;animation:fade .28s ease}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+
+.eyebrow{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.04;margin:0 0 18px;max-width:22ch}
+h2{font-size:22px;margin:0 0 6px}
+.lead{font-size:16.5px;color:var(--muted);max-width:74ch;line-height:1.6;margin:0 0 8px}
+.hr{height:1px;background:var(--line);margin:34px 0}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card.tight{padding:16px}
+.card h3{margin:0 0 8px;font-size:14.5px}
+.card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
+.muted{color:var(--muted)} .dim{color:var(--dim)}
+.small{font-size:12.5px} .tiny{font-size:11px} .micro{font-size:10.5px}
+.mono{font-family:var(--mono)}
+.mini{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:0 0 10px}
+.chip{display:inline-block;padding:3px 9px;border-radius:999px;border:1px solid var(--line2);background:var(--panel2);font-size:11px;color:var(--muted)}
+.chip.accent{color:var(--accent);border-color:rgba(242,160,61,.35);background:rgba(242,160,61,.08)}
+.tag{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:6px;border:1px solid var(--line2);color:var(--muted);white-space:nowrap}
+.tag.deep{background:var(--accent);border-color:var(--accent);color:#100c06;font-weight:700}
+
+/* architecture */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:6px}
+.stage{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+.stage .n{font-family:var(--mono);font-size:10px;color:var(--accent);margin-bottom:6px}
+.stage b{display:block;font-size:13px;margin-bottom:5px}
+.stage span{font-size:11.5px;color:var(--muted);line-height:1.45;display:block}
+.stage:not(:last-child)::after{content:"→";position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:12px;z-index:1}
+.feedback{margin-top:10px;border:1px dashed rgba(242,160,61,.35);background:rgba(242,160,61,.05);border-radius:10px;padding:10px 14px;font-size:12.5px;color:var(--accent)}
+.feedback b{color:var(--accent)}
+
+/* workflow areas */
+.area{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:14px}
+.area-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.area-num{font-family:var(--mono);font-size:11px;color:var(--accent);border:1px solid rgba(242,160,61,.3);background:rgba(242,160,61,.07);padding:2px 7px;border-radius:5px}
+.area h3{font-size:18px;margin:0}
+.area-head .tag{margin-left:auto}
+.area-q{color:var(--dim);font-size:12.5px;font-style:italic;margin:8px 0 10px}
+.pipes{font-size:11.5px;color:var(--dim);font-family:var(--mono);margin-bottom:16px}
+.pipes b{color:var(--muted);font-weight:500}
+.area-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:26px}
+.flow-list{margin:0;padding-left:20px}
+.flow-list li{margin-bottom:7px;font-size:13.5px;line-height:1.5;color:#d5dae3}
+.flow-list li::marker{color:var(--accent);font-family:var(--mono);font-size:11px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.split>div{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:12.5px;line-height:1.48;color:var(--muted)}
+.split b{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.split .ai{border-left:2px solid var(--accent)}
+.split .ai b{color:var(--accent)}
+.split .human{border-left:2px solid var(--green)}
+.split .human b{color:var(--green)}
+.tools{display:flex;flex-wrap:wrap;gap:6px}
+.kv{font-size:12.5px;color:var(--muted);line-height:1.5}
+.kv b{color:var(--text);font-weight:600}
+.area-foot{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.area-foot>div{font-size:12.5px;line-height:1.5;color:var(--muted)}
+.area-foot b{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);font-weight:600;text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);white-space:nowrap;background:var(--panel)}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;color:#cfd5df}
+tbody tr:hover td{background:rgba(255,255,255,.018)}
+.table-wrap{border:1px solid var(--line);border-radius:12px;overflow:auto;background:var(--panel)}
+.table-wrap table{min-width:880px}
+.num{font-family:var(--mono);font-size:12px;text-align:right;white-space:nowrap}
+.tbl-sub{display:block;font-size:10px;color:var(--dim);font-family:var(--mono);margin-top:2px}
+
+/* toast demo */
+.banner{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(242,160,61,.28);background:rgba(242,160,61,.06);border-radius:12px;padding:12px 16px;font-size:12.5px;color:#e3d3bd;margin-bottom:20px}
+.banner b{color:var(--accent)}
+.toolbar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.seg{display:flex;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:3px;flex-wrap:wrap}
+.seg button{background:none;border:0;color:var(--muted);font:inherit;font-size:12px;padding:6px 10px;border-radius:6px;cursor:pointer;white-space:nowrap}
+.seg button:hover{color:var(--text)}
+.seg button.on{background:var(--panel2);color:var(--text);box-shadow:0 0 0 1px var(--line2) inset}
+select{background:var(--panel);border:1px solid var(--line2);color:var(--text);border-radius:8px;padding:7px 10px;font:inherit;font-size:12px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:10px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px 14px}
+.kpi-label{font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);font-weight:600}
+.kpi-value{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:4px 0 5px;font-variant-numeric:tabular-nums}
+.kpi-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.delta{font-family:var(--mono);font-size:10.5px}
+.delta.up{color:var(--red)}      /* for cost metrics: up is bad by default */
+.delta.down{color:var(--green)}
+.delta.good{color:var(--green)} .delta.bad{color:var(--red)}
+.delta.flat{color:var(--dim)}
+.toast-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin-top:16px;align-items:start}
+.alert{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--line2);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+.alert.sev-high{border-left-color:var(--red)}
+.alert.sev-medium{border-left-color:var(--amber)}
+.alert.sev-low{border-left-color:var(--green)}
+.alert.resolved{opacity:.62}
+.alert-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.pill{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:4px;font-weight:700}
+.pill.high{background:rgba(232,105,92,.16);color:#f2938a}
+.pill.medium{background:rgba(231,185,90,.14);color:var(--amber)}
+.pill.low{background:rgba(73,201,155,.14);color:var(--green)}
+.alert-top .acct{font-size:11.5px;color:var(--dim);margin-left:auto}
+.alert h4{margin:0 0 3px;font-size:14.5px}
+.alert .entity{font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:9px}
+.why{margin:0 0 10px;padding-left:16px;font-size:12.5px;color:#c2c9d4}
+.why li{margin-bottom:3px}
+.rec{font-size:12.5px;color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:9px}
+.rec b{color:var(--text)}
+.action-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--dim);margin-bottom:10px}
+.api{font-family:var(--mono);font-size:10.5px;color:var(--muted);background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:3px 6px}
+.btn-row{display:flex;gap:8px}
+.btn-row button{font:inherit;font-size:12px;font-weight:600;padding:7px 14px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#120d05;cursor:pointer}
+.btn-row button.ghost{background:none;border-color:var(--line2);color:var(--muted);font-weight:500}
+.btn-row button:hover{filter:brightness(1.06)}
+.resolved-note{font-size:11.5px;color:var(--green);font-family:var(--mono)}
+.audit{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:12px;color:var(--muted);min-height:70px}
+.audit-item{border-bottom:1px solid var(--line);padding:8px 0;line-height:1.45}
+.audit-item:last-child{border-bottom:0}
+.audit-item .t{font-family:var(--mono);font-size:10px;color:var(--dim)}
+.audit-item .lab{color:var(--text)}
+.empty{font-size:12px;color:var(--dim);padding:10px 0}
+.chart-card{padding:14px 16px}
+.chart-legend{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:2px}
+.insight{border:1px solid var(--line);border-left:2px solid var(--accent);background:var(--panel2);border-radius:10px;padding:12px 14px;font-size:12.5px;color:#cfd5df;line-height:1.55;margin-bottom:14px}
+.pipeline-strip{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-bottom:18px}
+.pipeline-strip span{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 8px}
+.pipeline-strip .arrow{background:none;border:0;padding:0;color:var(--line2)}
+.guard{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:14px;background:var(--panel)}
+.guard ul{margin:6px 0 0;padding-left:16px;font-size:12px;color:var(--muted);line-height:1.6}
+.guard li{margin-bottom:3px}
+
+/* ideas */
+.idea{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--panel);margin-bottom:10px}
+.idea-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.idea h4{margin:0;font-size:14px}
+.idea .status{margin-left:auto;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:5px;font-weight:700}
+.st-promote{background:rgba(73,201,155,.14);color:var(--green)}
+.st-test{background:rgba(231,185,90,.14);color:var(--amber)}
+.st-kill{background:rgba(232,105,92,.14);color:var(--red)}
+.st-data{background:rgba(154,164,182,.14);color:var(--muted)}
+.idea .hook{font-size:13.5px;color:var(--text);margin:4px 0 6px;font-style:italic}
+.idea .concept{font-size:12.5px;color:var(--muted);margin-bottom:8px}
+.idea .why2{font-size:11.5px;color:var(--dim);margin-bottom:10px}
+.scores{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.score{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--dim);font-family:var(--mono)}
+.bar{width:38px;height:4px;border-radius:2px;background:var(--line2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent)}
+.killnote{font-size:11.5px;color:#f2938a;margin-top:6px}
+pre{background:#0b0e14;border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-family:var(--mono);font-size:11.5px;line-height:1.6;color:#c7cfdb;margin:0}
+details{border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+summary{cursor:pointer;padding:12px 14px;font-size:12.5px;color:var(--muted);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸ ";color:var(--accent)}
+details[open] summary::before{content:"▾ "}
+details pre{border:0;border-top:1px solid var(--line);border-radius:0 0 10px 10px}
+
+/* roadmap */
+.phase{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.phase .when{font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:.06em}
+.phase h3{margin:4px 0 12px;font-size:15.5px}
+.phase ul{margin:0 0 12px;padding-left:16px;font-size:12.5px;color:#c8cfda;line-height:1.55}
+.phase li{margin-bottom:5px}
+.phase .done{border-top:1px solid var(--line);padding-top:10px;font-size:11.5px;color:var(--muted)}
+.phase .done b{display:block;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.note{border-left:2px solid var(--green);background:rgba(73,201,155,.05);border-radius:8px;padding:12px 14px;font-size:12.5px;color:var(--muted);line-height:1.55}
+.note b{color:var(--text)}
+footer{max-width:1200px;margin:0 auto;padding:0 24px 60px;font-size:11.5px;color:var(--dim);line-height:1.7}
+footer .hr{margin:20px 0}
+@media(max-width:1000px){
+  .flow{grid-template-columns:repeat(3,1fr)}
+  .stage:not(:last-child)::after{display:none}
+  .area-grid{grid-template-columns:1fr;gap:18px}
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .toast-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .topbar{position:static}
+  section{scroll-margin-top:12px}
+  .wrap{padding:28px 16px 60px}
+  .flow{grid-template-columns:1fr 1fr}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .split,.area-foot{grid-template-columns:1fr}
+  .area{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>CerealBox <small>AI automation blueprint</small></div>
+    </div>
+    <nav id="nav">
+      <button data-tab="overview" class="active">Overview</button>
+      <button data-tab="areas">All 9 workflows</button>
+      <button data-tab="toast">Toast demo</button>
+      <button data-tab="ideas">Idea lab</button>
+      <button data-tab="plan">Roadmap &amp; cost</button>
+    </nav>
+    <div class="stamp">build 2026-11-10 13:09 UTC</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============================ OVERVIEW ============================ -->
+<section id="overview" class="active">
+  <div class="eyebrow">AI Automation &amp; Creative Workflow Challenge — Hassan Khawaja</div>
+  <h1>One brief in. A campaign out. Measurement that closes the loop.</h1>
+  <p class="lead">
+    Nine areas is not nine tools. It is one pipeline with a shared brief, a creative engine, a production
+    layer, approval gates, and a measurement layer that feeds performance back into the next round of ideas.
+    The demo is the measurement layer, because everything else is only as good as your ability to tell
+    whether it worked.
+  </p>
+
+  <div class="hr"></div>
+  <div class="mini">End-to-end architecture</div>
+  <div class="flow">
+    <div class="stage"><div class="n">01</div><b>Brief</b><span>One schema: goal, audience, offer, proof, brand kit, constraints, budget.</span></div>
+    <div class="stage"><div class="n">02</div><b>Idea engine</b><span>12 angles → dedupe vs archive → rubric score → 3 production briefs.</span></div>
+    <div class="stage"><div class="n">03</div><b>Production</b><span>Copy, static, script, UGC, edit, landing page — same brief, same asset IDs.</span></div>
+    <div class="stage"><div class="n">04</div><b>QA &amp; approval</b><span>Claims lint, brand rules, compliance, human gate by risk tier.</span></div>
+    <div class="stage"><div class="n">05</div><b>Distribution</b><span>Meta API, naming taxonomy, UTMs, variant matrix per ad set.</span></div>
+    <div class="stage"><div class="n">06</div><b>Measurement</b><span>Toast: metrics in code, alerts, recommendations, approved actions.</span></div>
+  </div>
+  <div class="feedback"><b>The loop closes here →</b> performance by angle / hook / format returns to stage 02 as a prior. That is the difference between an automation and a system that gets better.</div>
+
+  <div class="hr"></div>
+  <div class="mini">Six principles that decide the design</div>
+  <div class="grid g3">
+    <div class="card"><h3>One brief schema</h3><p>Everything downstream reads the same structured brief. No re-typing a client's offer five times into five tools — that is where inconsistency and hallucinated claims come from.</p></div>
+    <div class="card"><h3>Numbers in code, words in the model</h3><p>Every metric, threshold and delta is computed deterministically. The LLM explains and prioritises. It never does arithmetic, so it cannot invent a ROAS.</p></div>
+    <div class="card"><h3>Approve by risk tier, not by habit</h3><p>Resizing and reporting run alone. Anything that touches paid spend, a client's name, or a regulated claim has a named human in front of it.</p></div>
+    <div class="card"><h3>Every asset has an ID</h3><p>Brief → prompt version → model → eval score → live performance. Without that chain you can never tell which idea, hook or model improvement actually worked.</p></div>
+    <div class="card"><h3>Template the boring 80%</h3><p>Brand-safe templates, component libraries and locked offer facts remove most failure modes before a model is even involved. Generation is for the 20% that should vary.</p></div>
+    <div class="card"><h3>Measurement first</h3><p>It is the cheapest thing to build, the least risky, and it is what makes every other workflow improvable. It is also the fastest way to earn trust in the room.</p></div>
+  </div>
+
+  <div class="hr"></div>
+  <div class="mini">Where automation stops — approval tiers</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:150px">Tier</th><th>What runs here</th><th style="width:240px">Who signs off</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip">0 · automatic</span></td><td>Data pulls, metric calculation, reports, resizing, captions, internal draft assets.</td><td>Nobody — logged and reviewable.</td></tr>
+        <tr><td><span class="chip">1 · spot-check</span></td><td>Copy variants, static concepts, script drafts, idea lists.</td><td>Strategist reviews before anything reaches a client.</td></tr>
+        <tr><td><span class="chip accent">2 · named approval</span></td><td>Final creative into paid, landing page publish, budget or audience changes.</td><td>Account lead / media buyer, one named person per client.</td></tr>
+        <tr><td><span class="chip">3 · founder / legal</span></td><td>Regulated claims (health, finance), likeness and consent, anything under platform policy scrutiny.</td><td>Founder or legal advisor. No exceptions, no auto-approve.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="hr"></div>
+  <div class="grid g3">
+    <div class="card"><h3>What you can click</h3><p><b>Toast demo</b> is a working pipeline: synthetic Meta export → Python metric layer → rules engine → dashboard with an approval queue. <b>Idea lab</b> is the deepest design problem, shown as a prompt + scored output + the kill reasons.</p></div>
+    <div class="card"><h3>What is real vs mocked</h3><p>The data is synthetic and the API calls are simulated; the ingestion shape, metric maths, thresholds, alert logic and approval flow are the production design. Swapping in a real account is a credential and a column mapping.</p></div>
+    <div class="card"><h3>What I would build first</h3><p>Toast v1 plus the copy pipeline, on two pilot clients, inside two weeks — then the idea engine. Reasoning on the <b>Roadmap</b> tab.</p></div>
+  </div>
+</section>
+
+<!-- ============================ AREAS ============================ -->
+<section id="areas">
+  <div class="eyebrow">Coverage</div>
+  <h2>All nine workflows</h2>
+  <p class="lead">Each block is input → steps → tools → where AI stops. Two are built deeper than the rest, and those are labelled.</p>
+  <div class="hr"></div>
+
+  <!-- 1 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">01</span><h3>AI Copywriting</h3><span class="tag">Workflow</span></div>
+    <div class="area-q">“Can AI generate high-quality advertising copy consistently, including hooks, headlines, primary text, variations and campaign-ready messaging?”</div>
+    <div class="pipes"><b>reads</b> brief · brand kit · hook library &nbsp;·&nbsp; <b>feeds</b> static creative · scripts · landing pages</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Brief in one schema</b> — goal, audience, offer, proof points, brand voice, platform, constraints.</li>
+        <li><b>Retrieve, don't invent</b> — pull the top-performing hooks and angles for this client from the library, so generation starts from evidence.</li>
+        <li><b>12 variants, structured</b> — 3 angles × (hook, headline, primary text, CTA) at 3 lengths, returned as JSON rather than prose.</li>
+        <li><b>Mechanical lint</b> — character limits, banned claims, pricing pulled from the locked offer sheet, readability, duplicate check.</li>
+        <li><b>Strategist picks 3</b> → exported with naming convention and UTMs.</li>
+        <li><b>Results by hook and angle</b> return to the library for the next cycle.</li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools">
+          <span class="chip">Claude Sonnet (JSON output)</span><span class="chip">Airtable / Sheets</span><span class="chip">Langfuse (prompt versions)</span><span class="chip">LanguageTool</span>
+        </div>
+        <div class="mini">Who does what</div>
+        <div class="split">
+          <div class="ai"><b>AI</b>Drafting, variation volume, length and format adaptation, tone matching, first-pass angle coverage.</div>
+          <div class="human"><b>Human</b>Final selection, claims and pricing accuracy, the client-tone call.</div>
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>Schema validation · no numbers the model can invent (offer facts are locked) · per-vertical banned-claims list · similarity check vs last 90 days · human sign-off.</div>
+          <div><b>Output</b>A campaign-ready copy sheet: 12 drafts → 3 approved, each tagged with angle and hook so results are attributable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">02</span><h3>AI Static Creative</h3><span class="tag">Workflow</span></div>
+    <div class="area-q">“Can AI generate strong static ad concepts and finished creative assets that are usable for paid advertising, not just generic designs?”</div>
+    <div class="pipes"><b>reads</b> idea · brand kit · asset library &nbsp;·&nbsp; <b>feeds</b> Meta · landing page hero</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Art direction brief</b> from the approved idea — message hierarchy, format set, brand constraints.</li>
+        <li><b>3 low-fi concepts</b> (Flux / Midjourney) for direction only. This is where a human's taste is cheapest.</li>
+        <li><b>Art director picks one.</b> Nothing gets produced in volume before this gate.</li>
+        <li><b>Production:</b> generated background and imagery; product, logo and people cut from the licensed asset library; headline, price and legal line composited as real type in an HTML template (Playwright) or the Figma API.</li>
+        <li><b>Auto-resize</b> to 1:1, 4:5, 9:16, 16:9 from safe-zone templates.</li>
+        <li><b>QA:</b> brand rules, OCR check that rendered text matches the approved copy, safe-zone check, policy check, duplicate check.</li>
+        <li><b>Approve → publish</b> via Meta API with the naming taxonomy.</li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools">
+          <span class="chip">Flux via fal.ai</span><span class="chip">Midjourney (concepting)</span><span class="chip">Figma API / Playwright</span><span class="chip">Photoroom (cutouts)</span>
+        </div>
+        <div class="mini">Who does what</div>
+        <div class="split">
+          <div class="ai"><b>AI</b>Concepting, backgrounds and imagery, layout variants, resizing and format adaptation.</div>
+          <div class="human"><b>Human</b>Concept selection, final art direction, brand sign-off before spend.</div>
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>The rule that makes this usable: never let the image model draw the logo, the price or the legal line. Real brand assets are composited, so the output is on-brand by construction.</div>
+          <div><b>Output</b>Finished multi-format statics; a small test budget before scaling.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">03</span><h3>AI Script Writing</h3><span class="tag">Workflow</span></div>
+    <div class="area-q">“Can AI produce strong scripts for ads, UGC-style content and short-form video based on campaign goal, audience and offer?”</div>
+    <div class="pipes"><b>reads</b> idea · copy · audience insight &nbsp;·&nbsp; <b>feeds</b> UGC video · video editing</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Format first</b> — 15s UGC, 30s testimonial, 6s bumper. The format dictates the structure, not the other way round.</li>
+        <li><b>5 hooks</b>, each written to land in under 3 spoken seconds.</li>
+        <li><b>Script in beats:</b> hook → problem → mechanism → proof → offer → CTA, with a target duration per beat.</li>
+        <li><b>Read-aloud check</b> — words-per-second at 1.0× and 1.15×, so timing is calculated rather than guessed.</li>
+        <li><b>Claims, likeness and tone pass</b> before anything is shot or generated.</li>
+        <li><b>Storyboard handoff:</b> shot list, on-screen text, b-roll cues.</li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools"><span class="chip">Claude Opus</span><span class="chip">ElevenLabs (scratch VO)</span><span class="chip">Descript (timing)</span></div>
+        <div class="mini">Who does what</div>
+        <div class="split">
+          <div class="ai"><b>AI</b>Hook volume, beat structure, timing maths, variants per audience.</div>
+          <div class="human"><b>Human</b>The story, claim verification, the final read and tone.</div>
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>Duration is computed from word count and WPS · hook rubric scored against the client's winners · regulated claims reviewed by a human · nothing generated for the presenter without a consent record.</div>
+          <div><b>Output</b>Shooting-ready scripts with a shot list and per-beat timing.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">04</span><h3>AI UGC Video</h3><span class="tag">Workflow</span></div>
+    <div class="area-q">“Can AI handle most or all of the UGC production process — from script/idea through to a usable influencer-style video?”</div>
+    <div class="pipes"><b>reads</b> script · creator assets &nbsp;·&nbsp; <b>feeds</b> video editing · Meta</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Choose the path per concept:</b> real creator (hero content), consented AI avatar (volume), or AI b-roll + text (no face).</li>
+        <li><b>Creator path:</b> brief → shot list → footage → edit. Relationships stay human; that is the asset.</li>
+        <li><b>AI path:</b> signed avatar + cloned voice → script → lip-sync → b-roll → captions → brand template.</li>
+        <li><b>Variation matrix:</b> 3 hooks × 2 CTAs per approved script. This is where AI genuinely beats a shoot on cost.</li>
+        <li><b>Human “does it look fake” review</b> and AI-disclosure tagging before spend.</li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools"><span class="chip">HeyGen / Argil</span><span class="chip">ElevenLabs</span><span class="chip">Runway / Kling</span><span class="chip">CapCut (polish)</span></div>
+        <div class="mini">Who does what</div>
+        <div class="split">
+          <div class="ai"><b>AI</b>Hook variants, voice, lip-sync, b-roll, captions, localisation.</div>
+          <div class="human"><b>Human</b>Creator relationships, authenticity judgement, final approval.</div>
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>Written consent and likeness release · no fabricated testimonials · platform-required AI disclosure · human review of any health or income claim.</div>
+          <div><b>Output</b>6–10 variants per script. <b>Honest view:</b> fully AI UGC still reads as AI. Hybrid — real people for hero, AI for variants and non-face formats — is what performs and what I would build.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">05</span><h3>AI Video Editing</h3><span class="tag">Workflow</span></div>
+    <div class="area-q">“Can AI edit videos from start to finish at a high standard — pacing, cuts, captions, B-roll, audio, branding, export?”</div>
+    <div class="pipes"><b>reads</b> raw footage · script &nbsp;·&nbsp; <b>feeds</b> Meta · organic</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Ingest + transcribe</b> with word timestamps (Whisper).</li>
+        <li><b>Text-based first cut</b> — strip silences and fillers, keep the strongest 3 seconds as the hook.</li>
+        <li><b>Beat-matched cuts</b> to the music bed, punch-ins on emphasis.</li>
+        <li><b>Branded captions</b>, safe zones, b-roll cutaways from the client library.</li>
+        <li><b>Audio:</b> loudness normalisation to −14 LUFS, ducking, SFX.</li>
+        <li><b>End card + multi-format export</b> with automated spec checks.</li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools"><span class="chip">Descript</span><span class="chip">FFmpeg (assembly)</span><span class="chip">Auto-Editor</span><span class="chip">DaVinci / CapCut</span><span class="chip">Whisper</span></div>
+        <div class="mini">Who does what</div>
+        <div class="split">
+          <div class="ai"><b>AI</b>Transcription, silence removal, rough cut, captions, B-roll matching, format exports.</div>
+          <div class="human"><b>Human</b>Pacing and taste, final polish, brand films.</div>
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>Automated spec checks (duration, codec, bitrate, loudness) · caption accuracy spot check · safe zones · no cut mid-word. Fully automated editing is realistic for templated formats; premium brand films keep a human editor using AI as an assistant.</div>
+          <div><b>Output</b>Platform-ready 9:16 / 1:1 / 16:9 cuts.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">06</span><h3>AI Media Buyer / Ads Agent</h3><span class="tag">Workflow</span></div>
+    <div class="area-q">“Can an agent monitor campaigns, identify issues, recommend changes, alert, report or take approved actions?”</div>
+    <div class="pipes"><b>reads</b> Meta API · account config &nbsp;·&nbsp; <b>feeds</b> Toast · Slack · client reporting</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Read</b> hourly Meta Insights and account structure into a warehouse.</li>
+        <li><b>Compute</b> metrics and deltas in code — never in the model.</li>
+        <li><b>Detect</b> fatigue, CPA inflation, zero-conversion creative, pacing, delivery stalls.</li>
+        <li><b>Explain</b> — the LLM writes the “why” from computed facts.</li>
+        <li><b>Recommend</b> an action with expected impact and confidence.</li>
+        <li><b>Approve</b> in a queue with a before/after snapshot.</li>
+        <li><b>Execute</b> via Marketing API with guardrails; log and keep a rollback snapshot.</li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools"><span class="chip">Python + Marketing API</span><span class="chip">n8n scheduler</span><span class="chip">Postgres</span><span class="chip">Slack</span><span class="chip">Metabase</span></div>
+        <div class="mini">Autonomy tiers</div>
+        <div class="kv" style="font-size:12.5px;color:var(--muted);line-height:1.6">
+          <b>L1</b> report only → <b>L2</b> recommend → <b>L3</b> approved actions → <b>L4</b> autonomous inside guardrails.
+          CerealBox should be at L3 within 90 days; L4 only after a quarter of clean L3 history.
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>Daily reconciliation against Ads Manager · max N changes per 24h · ≤20% budget delta without approval · allowlist of action types · kill switch · dry-run mode · full audit log.</div>
+          <div><b>Output</b>Daily digest, alert queue, and an action log a client can read.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">07</span><h3>AI Idea Generator</h3><span class="tag deep">Deep dive</span></div>
+    <div class="area-q">“Can AI consistently generate genuinely interesting campaign ideas that feed copy, static, scripts and video? One of the most important and difficult areas for us.”</div>
+    <div class="pipes"><b>reads</b> brief · performance history · creative archive &nbsp;·&nbsp; <b>feeds</b> every production workflow</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Give the model real inputs</b> — client context, audience tensions, offer mechanics, last 90 days of creative with performance by angle, seasonality. “Give me 5 ad ideas” is why most output is generic.</li>
+        <li><b>Diverge on a fixed taxonomy</b> — insight, contrarian, social proof, stakes, mechanism, identity, urgency, humour — with a cap per angle to force breadth.</li>
+        <li><b>Constrain</b> — every idea must work as static, 15s video and 6s bumper, cite a real tension, and not repeat an archived hook.</li>
+        <li><b>Novelty filter</b> — embedding similarity against the archive; near-duplicates are killed before a human wastes time on them.</li>
+        <li><b>Converge by rubric</b> — insight, audience tension, brand fit, hook strength, feasibility, policy risk. LLM judge first, strategist second.</li>
+        <li><b>Promote 3</b> into production briefs, log the outcome, and use which angles produced winners as next cycle's prior.</li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools"><span class="chip">Claude Opus</span><span class="chip">pgvector + embeddings</span><span class="chip">Airtable idea board</span><span class="chip">Langfuse traces</span></div>
+        <div class="mini">Who does what</div>
+        <div class="split">
+          <div class="ai"><b>AI</b>Breadth, combination, first-pass scoring, rationale, archive dedupe.</div>
+          <div class="human"><b>Human</b>The taste call. This is where judgement compounds and should stay.</div>
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>Archive dedupe · mandatory “why it works” rationale · compliance pre-screen · the real metric is <b>idea hit-rate</b> (ideas → winning ads), not volume of ideas.</div>
+          <div><b>Output</b>Ranked idea board with production briefs. See the <b>Idea lab</b> tab for the prompt, a scored run, and the kill reasons.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">08</span><h3>AI Landing Pages</h3><span class="tag">Workflow</span></div>
+    <div class="area-q">“Can AI help create high-quality landing pages from a brief, campaign concept or offer — structure, copy, design and iteration?”</div>
+    <div class="pipes"><b>reads</b> brief · offer · ad copy &nbsp;·&nbsp; <b>feeds</b> paid traffic · conversion data</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Page architecture</b> from the offer: hero, proof, mechanism, offer, objections, FAQ, CTA.</li>
+        <li><b>Copy from the same engine as the ads</b>, so the claim on the page matches the claim in the ad — this is the most common conversion leak.</li>
+        <li><b>Assemble from an approved component library</b> (brand tokens, accessible, tested) rather than freehand HTML. Speed without broken layouts.</li>
+        <li><b>Generate</b> from a template (Astro / Next.js, or Framer when a client needs to self-edit).</li>
+        <li><b>Automated QA:</b> Lighthouse, mobile, forms, tracking (pixel + CAPI), legal links.</li>
+        <li><b>Staging preview → human approval → publish → A/B test.</b></li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools"><span class="chip">Claude</span><span class="chip">Next.js / Astro + Tailwind</span><span class="chip">Framer</span><span class="chip">PostHog</span><span class="chip">Vercel</span></div>
+        <div class="mini">Who does what</div>
+        <div class="split">
+          <div class="ai"><b>AI</b>Structure, copy, variants, image selection, first-pass layout.</div>
+          <div class="human"><b>Human</b>Publish approval, offer accuracy, brand judgement.</div>
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>No invented testimonials or statistics · claims match the ads · forms and tracking tested in staging · staging URL reviewed before publish · one variable changed per test.</div>
+          <div><b>Output</b>Live page plus a variant, with conversion data feeding the next brief.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="area">
+    <div class="area-head"><span class="area-num">09</span><h3>Toast / Meta Ads Analysis</h3><span class="tag deep">Deep dive · worked demo</span></div>
+    <div class="area-q">“Collect and consolidate ad data, surface key metrics, identify trends and issues, and present useful insights in a clear dashboard.”</div>
+    <div class="pipes"><b>reads</b> Meta Marketing API &nbsp;·&nbsp; <b>feeds</b> the media buyer agent · client reporting · creative feedback loop</div>
+    <div class="area-grid">
+      <ol class="flow-list">
+        <li><b>Ingest</b> hourly Insights pull (or CSV fallback) into Postgres.</li>
+        <li><b>Metric layer</b> — deterministic KPIs, week-on-week deltas, pacing against budget.</li>
+        <li><b>Rules engine</b> — fatigue, CPA inflation, zero conversion, CTR floor, delivery stall, pacing.</li>
+        <li><b>Narrative layer</b> — the LLM writes the explanation from the computed facts only.</li>
+        <li><b>Deliver</b> — dashboard, 9am digest, Slack alerts with severity and the money at stake.</li>
+        <li><b>Act</b> — recommendation → human approval → Marketing API (dry-run in the demo) → audit log.</li>
+        <li><b>Close the loop</b> — outcomes tune thresholds; false positives are fed back explicitly.</li>
+      </ol>
+      <div>
+        <div class="mini">Tools</div>
+        <div class="tools"><span class="chip">Python</span><span class="chip">Meta Marketing API</span><span class="chip">Postgres</span><span class="chip">n8n</span><span class="chip">Slack</span><span class="chip">Metabase</span></div>
+        <div class="mini">Who does what</div>
+        <div class="split">
+          <div class="ai"><b>AI</b>Explanation, prioritisation, drafting the change, trend narration.</div>
+          <div class="human"><b>Human</b>Approves every spend change; sets targets; decides strategy.</div>
+        </div>
+        <div class="area-foot">
+          <div><b>Quality control</b>Daily reconciliation vs Ads Manager (alert if &gt;1% drift) · alert noise budget per client · no action on a single day's data · before/after snapshots · rollback.</div>
+          <div><b>Output</b>The dashboard on the next tab — 4 accounts, 448 rows, 7 live alerts, an approval queue and an audit log.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TOAST ============================ -->
+<section id="toast">
+  <div class="eyebrow">Worked demo · area 09</div>
+  <h2>Toast — Meta performance control room</h2>
+  <p class="lead">Four client accounts, 28 days of synthetic Meta data, real pipeline. Filter, inspect, approve an action, and watch the audit log.</p>
+
+  <div class="hr"></div>
+
+  <div class="banner">
+    <div>●</div>
+    <div><b>Synthetic data, production architecture.</b> The CSV mirrors the Marketing API insights shape, so the same pipeline runs against a live account with a credential and a column map. Every number below is calculated in Python; the model layer in production only writes the sentences. API calls on approve are simulated — nothing is sent to Meta.</div>
+  </div>
+
+  <div class="pipeline-strip">
+    <span>CSV ingest · <span id="ps-rows">—</span> rows</span><span class="arrow">→</span>
+    <span>metric layer · deterministic</span><span class="arrow">→</span>
+    <span>rules engine · <span id="ps-alerts">—</span> alerts</span><span class="arrow">→</span>
+    <span>narrative layer</span><span class="arrow">→</span>
+    <span>dashboard · <span id="ps-end">—</span></span>
+  </div>
+
+  <div class="toolbar">
+    <div class="seg" id="acct-chips"></div>
+    <div class="seg" id="win-chips"></div>
+    <select id="sort">
+      <option value="spend">Sort: spend</option>
+      <option value="cpa">Sort: worst CPA</option>
+      <option value="roas">Sort: lowest ROAS</option>
+      <option value="freq">Sort: highest frequency</option>
+    </select>
+  </div>
+
+  <div id="toast-body"></div>
+
+  <div class="hr"></div>
+  <div class="grid g3">
+    <div class="card"><h3>What is deterministic</h3><p>The KPIs, deltas, thresholds, alert severity, the money at stake and pacing. If a number is wrong, it is a bug in code you can read — not a model's guess.</p></div>
+    <div class="card"><h3>What the model adds</h3><p>The “what changed” narrative, prioritising between alerts, and drafting the recommended change in plain language. It receives the computed facts as a JSON payload and is instructed not to recalculate.</p></div>
+    <div class="card"><h3>What a human keeps</h3><p>Every spend decision. The queue only proposes. The audit log below is the artifact that makes that defensible to a client.</p></div>
+  </div>
+</section>
+
+<!-- ============================ IDEAS ============================ -->
+<section id="ideas">
+  <div class="eyebrow">Deep dive · area 07</div>
+  <h2>Idea lab — the part that decides everything else</h2>
+  <p class="lead">Copy, static, scripts and video are production problems. Ideas are a judgement problem. The design goal is to buy breadth cheaply, then spend human taste only on the top of the funnel.</p>
+
+  <div class="hr"></div>
+
+  <div class="grid g2">
+    <div class="card">
+      <div class="mini">Example brief</div>
+      <div class="kv">
+        <b>Client</b> Calder Foundation · year-end giving<br>
+        <b>Goal</b> Reactivate lapsed one-time donors (£35–55)<br>
+        <b>Offer</b> Every gift matched 2× until 31 Dec, cap and terms verified<br>
+        <b>Constraints</b> No exploitative imagery, no fabricated impact numbers, donor privacy rules<br>
+        <b>Channels</b> Meta feed + reels, landing page, email
+      </div>
+    </div>
+    <div class="card">
+      <div class="mini">Pipeline</div>
+      <ol class="flow-list" style="margin-bottom:0">
+        <li>Normalise brief + load 90 days of creative and performance.</li>
+        <li>Generate 12 ideas across the angle taxonomy, max 2 per angle.</li>
+        <li>Kill near-duplicates by embedding similarity vs the archive.</li>
+        <li>Score on the rubric; discard anything that cannot be substantiated.</li>
+        <li>Human strategist promotes 3 into production briefs.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+  <div class="mini">A scored run — 8 of 12 shown, including what got killed and why</div>
+
+  <div id="idea-list">
+    <div class="idea">
+      <div class="idea-top"><h4>The match has an expiry</h4><span class="chip">mechanism</span><span class="status st-promote">Promoted</span></div>
+      <div class="hook">“Your £50 becomes £100 at midnight on the 31st. After that, the match is gone.”</div>
+      <div class="concept">Make the deadline the mechanism, not the decoration. Countdown static, 15s UGC, 6s bumper. All three formats read from the same line.</div>
+      <div class="why2">It states the offer's real mechanics and creates urgency without inventing scarcity — the match genuinely ends.</div>
+      <div class="scores">
+        <span class="score">insight <span class="bar"><i style="width:90%"></i></span></span>
+        <span class="score">brand <span class="bar"><i style="width:85%"></i></span></span>
+        <span class="score">hook <span class="bar"><i style="width:90%"></i></span></span>
+        <span class="score">feasible <span class="bar"><i style="width:95%"></i></span></span>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-top"><h4>You stopped giving. The need didn't.</h4><span class="chip">contrarian</span><span class="status st-test">Test</span></div>
+      <div class="hook">“In 2023 you gave once. Here's what that one gift is still doing.”</div>
+      <div class="concept">Direct address to lapsed donors, no guilt framing. Testimonials from recipients about a specific programme, not general “impact”.</div>
+      <div class="why2">Speaks to the actual reason donors lapse — they never saw the outcome. Needs a real recipient story; flagged for consent before production.</div>
+      <div class="scores">
+        <span class="score">insight <span class="bar"><i style="width:85%"></i></span></span>
+        <span class="score">brand <span class="bar"><i style="width:70%"></i></span></span>
+        <span class="score">hook <span class="bar"><i style="width:80%"></i></span></span>
+        <span class="score">feasible <span class="bar"><i style="width:60%"></i></span></span>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-top"><h4>The 4-minute ask</h4><span class="chip">insight</span><span class="status st-promote">Promoted</span></div>
+      <div class="hook">“Most year-end appeals ask for money. This one asks for four minutes.”</div>
+      <div class="concept">A short film about one night at the shelter, then the ask. The ad's job is attention, the page's job is the gift.</div>
+      <div class="why2">Reduces the perceived cost of engaging, and gives a strong reason to click without discounting the offer.</div>
+      <div class="scores">
+        <span class="score">insight <span class="bar"><i style="width:80%"></i></span></span>
+        <span class="score">brand <span class="bar"><i style="width:95%"></i></span></span>
+        <span class="score">hook <span class="bar"><i style="width:85%"></i></span></span>
+        <span class="score">feasible <span class="bar"><i style="width:75%"></i></span></span>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-top"><h4>96 hours</h4><span class="chip">stakes</span><span class="status st-test">Test</span></div>
+      <div class="hook">“The gap isn't money. It's 96 hours.”</div>
+      <div class="concept">Countdown-led creative where the unit is time, not pounds. Needs the operational detail to be true and current.</div>
+      <div class="why2">Sharp, but the same urgency territory as idea 1. Serialise them rather than run both at once.</div>
+      <div class="scores">
+        <span class="score">insight <span class="bar"><i style="width:65%"></i></span></span>
+        <span class="score">brand <span class="bar"><i style="width:85%"></i></span></span>
+        <span class="score">hook <span class="bar"><i style="width:80%"></i></span></span>
+        <span class="score">feasible <span class="bar"><i style="width:90%"></i></span></span>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-top"><h4>The donors who came back</h4><span class="chip">social proof</span><span class="status st-promote">Promoted</span></div>
+      <div class="hook">“1,204 people who stopped giving in 2023 gave again this month. Here's what changed.”</div>
+      <div class="concept">Peer behaviour as the proof. The number must come from the CRM, not from the model.</div>
+      <div class="why2">Lapsed donors assume they are the exception. Social proof normalises returning — strong for this segment.</div>
+      <div class="scores">
+        <span class="score">insight <span class="bar"><i style="width:85%"></i></span></span>
+        <span class="score">brand <span class="bar"><i style="width:80%"></i></span></span>
+        <span class="score">hook <span class="bar"><i style="width:85%"></i></span></span>
+        <span class="score">feasible <span class="bar"><i style="width:70%"></i></span></span>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-top"><h4>Everyone gets a 5× match</h4><span class="chip">stakes</span><span class="status st-kill">Killed</span></div>
+      <div class="hook">“Every pound you give is matched 5× by an anonymous donor.”</div>
+      <div class="concept">Would probably perform — which is exactly why it is dangerous. The match is 2× and the donor is not anonymous.</div>
+      <div class="killnote">Killed by the claims check: contradicts the locked offer facts. This is the failure mode a lint layer exists to catch before a human ever sees it.</div>
+      <div class="scores">
+        <span class="score">insight <span class="bar"><i style="width:55%"></i></span></span>
+        <span class="score">brand <span class="bar"><i style="width:25%"></i></span></span>
+        <span class="score">hook <span class="bar"><i style="width:90%"></i></span></span>
+        <span class="score">risk <span class="bar"><i style="width:95%;background:var(--red)"></i></span></span>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-top"><h4>Your £50 is worth £100 (again)</h4><span class="chip">mechanism</span><span class="status st-kill">Killed · duplicate</span></div>
+      <div class="hook">“Double your gift before the year ends.”</div>
+      <div class="concept">0.91 embedding similarity to the June “double your gift” campaign, which had a median ROAS of 0.8.</div>
+      <div class="killnote">Killed by the novelty filter before scoring. Repeating a losing hook is the most expensive kind of cheap.</div>
+      <div class="scores">
+        <span class="score">novelty <span class="bar"><i style="width:9%;background:var(--red)"></i></span></span>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-top"><h4>Lapsed donors who return once are 3× more likely to stay</h4><span class="chip">insight</span><span class="status st-data">Needs data</span></div>
+      <div class="hook">“Coming back once is the whole trick.”</div>
+      <div class="concept">Strong retention framing — but the “3×” is a hypothesis, not a fact from the CRM yet.</div>
+      <div class="killnote">Blocked from production until the retention team confirms the number. The model cannot supply it.</div>
+      <div class="scores">
+        <span class="score">insight <span class="bar"><i style="width:80%"></i></span></span>
+        <span class="score">brand <span class="bar"><i style="width:85%"></i></span></span>
+        <span class="score">hook <span class="bar"><i style="width:70%"></i></span></span>
+        <span class="score">evidence <span class="bar"><i style="width:10%;background:var(--red)"></i></span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+  <div class="grid g2">
+    <div>
+      <div class="mini">The production prompt (abridged)</div>
+      <details open>
+        <summary>Show the actual template</summary>
+<pre>SYSTEM
+You are the creative strategist for {{client}}. You generate ad concepts,
+not finished copy. Every idea must be executable as a static, a 15s video
+and a 6s bumper.
+
+CONTEXT  (injected per run)
+- Brand kit and tone rules: {{brand_kit}}
+- OFFER FACTS (locked — never contradict, never invent numbers): {{offer}}
+- Audience segments and the tension each one feels: {{audiences}}
+- Last 90 days of creative: ids, angle, hook, ROAS, CPA  {{archive}}
+- Performance priors: angle → median ROAS / CPA  {{priors}}
+- Compliance: {{vertical_rules, banned_claims, tone_limits}}
+
+TASK
+Return 12 ideas as JSON. For each:
+  id, angle (from the fixed taxonomy), audience_segment,
+  hook_line (<= 12 words),
+  one_line_concept,
+  why_it_works (<= 30 words — must name a real tension, not a benefit),
+  formats: [static, 15s, 6s],
+  production_path: [template | shoot | ai_gen],
+  evidence_needed: [] or ["retention rate from CRM"],
+  compliance: {risk: low|med|high, reason}
+
+RULES
+1. Max 2 ideas per angle. Breadth is the point.
+2. Do not reuse or paraphrase any hook in ARCHIVE.
+3. No claim that is not in OFFER FACTS. If a number is missing, set
+   evidence_needed and do not write the number.
+4. Then score every idea 1-10 on insight, audience_tension, brand_fit,
+   hook_strength, feasibility, policy_risk (inverted). Return a ranked
+   list with a one-line rationale for each score below 6.</pre>
+      </details>
+    </div>
+    <div>
+      <div class="mini">Scoring rubric — what a 9 means</div>
+      <div class="table-wrap">
+        <table style="min-width:0">
+          <tbody>
+            <tr><td><b>Insight</b></td><td>Says something the audience has not already heard in this category. 9 = a real tension, stated plainly.</td></tr>
+            <tr><td><b>Audience tension</b></td><td>Names a conflict the segment actually feels, not a benefit they want.</td></tr>
+            <tr><td><b>Brand fit</b></td><td>Could only have come from this client. 3 = could be any charity.</td></tr>
+            <tr><td><b>Hook strength</b></td><td>Interesting in 3 seconds, without the image or the logo.</td></tr>
+            <tr><td><b>Feasibility</b></td><td>Producible this month with the assets we actually have.</td></tr>
+            <tr><td><b>Policy risk</b></td><td>Inverted. 9 = clean; anything below 5 blocks production.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note" style="margin-top:12px"><b>Honest framing:</b> this run is written out by hand to show the shape and judgement. The prompt is the artifact I would ship; the scoring is done by an LLM judge, then overruled by a strategist — the overrules are the training signal for the rubric.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PLAN ============================ -->
+<section id="plan">
+  <div class="eyebrow">Execution</div>
+  <h2>90-day plan, cost, and what breaks</h2>
+  <p class="lead">Sequenced so each milestone makes the next one cheaper. Measurement first, because it is low-risk and it is what tells you whether the creative work is any good.</p>
+
+  <div class="hr"></div>
+  <div class="mini">Why this order</div>
+  <div class="grid g2" style="margin-bottom:18px">
+    <div class="card"><h3>Measurement before generation</h3><p>Without Toast you cannot tell whether AI creative is working. It is also the fastest, least political win and it builds the data that later feeds the idea engine.</p></div>
+    <div class="card"><h3>Copy before visuals, ideas before volume</h3><p>Copy is the cheapest end-to-end proof of the brief schema. Ideas come before production volume so you are not industrialising mediocre concepts — and the agent comes last, because it needs trustworthy data plus an approval habit.</p></div>
+  </div>
+
+  <div class="grid g4">
+    <div class="phase">
+      <div class="when">WEEKS 1–2</div>
+      <h3>Foundations</h3>
+      <ul>
+        <li>n8n (self-hosted) + Postgres + one shared brief schema; brand kits for the three largest clients.</li>
+        <li><b>Toast v1:</b> hourly Meta pull → rules → 9am digest + dashboard for two pilot clients.</li>
+        <li><b>Copy v1:</b> brand voice, claims lint, variant sheet.</li>
+      </ul>
+      <div class="done"><b>Done when</b>The digest lands at 09:00 unattended, reconciles within 1% of Ads Manager and is used daily by one buyer. Three paid briefs have run through the copy pipeline.</div>
+    </div>
+    <div class="phase">
+      <div class="when">DAY 30</div>
+      <h3>Creative core</h3>
+      <ul>
+        <li><b>Idea generator v1:</b> taxonomy, archive dedupe, rubric scoring; a weekly 45-minute idea session.</li>
+        <li><b>Static v1:</b> three master templates, brand-safe text compositing, 10 concepts/week.</li>
+        <li><b>Landing pages:</b> component library + two live pages.</li>
+      </ul>
+      <div class="done"><b>Done when</b>Brief → ideas → copy → static runs end to end for one client in under 48h, and at least half of the concepts survive review.</div>
+    </div>
+    <div class="phase">
+      <div class="when">DAY 60</div>
+      <h3>Volume</h3>
+      <ul>
+        <li><b>Scripts + UGC hybrid pilot:</b> real hero creators, AI hook and CTA variants, consent and disclosure workflow.</li>
+        <li><b>Video editing:</b> templated FFmpeg assembly, auto captions, loudness and spec QC, under 24h turnaround.</li>
+        <li><b>Toast v2:</b> recommendations → Slack approval → Marketing API in dry-run.</li>
+      </ul>
+      <div class="done"><b>Done when</b>20 variants/month from one brief, zero unapproved spend changes, edit QC pass rate above 90%.</div>
+    </div>
+    <div class="phase">
+      <div class="when">DAY 90</div>
+      <h3>Closed loop</h3>
+      <ul>
+        <li><b>Media buyer at L3</b> on two accounts: approved actions, before/after snapshots, rollback, kill switch.</li>
+        <li><b>Performance → priors:</b> angle, hook and format results feed the idea engine; monthly prompt and model eval.</li>
+        <li><b>Client portal</b> and per-client cost attribution.</li>
+      </ul>
+      <div class="done"><b>Done when</b>At least 25% of recommendations are approved unchanged, CPA improves against a control cohort, and the false-positive alert rate is under 5%.</div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+  <div class="grid g2">
+    <div>
+      <div class="mini">Cost at pilot and at scale</div>
+      <div class="table-wrap">
+        <table style="min-width:0">
+          <thead><tr><th>Layer</th><th>Pilot</th><th>20 clients</th></tr></thead>
+          <tbody>
+            <tr><td>Orchestration (n8n self-hosted)</td><td class="num">$0 + $15 VPS</td><td class="num">~$40</td></tr>
+            <tr><td>Database + dashboard</td><td class="num">$0–25</td><td class="num">$75–120</td></tr>
+            <tr><td>Text / strategy</td><td class="num">$50–150</td><td class="num">$300–600</td></tr>
+            <tr><td>Static generation</td><td class="num">$30–60</td><td class="num">$200–350</td></tr>
+            <tr><td>Video generation</td><td class="num">$100 (trial credits)</td><td class="num">$400–900</td></tr>
+            <tr><td>Editing compute</td><td class="num">$0–24</td><td class="num">$120</td></tr>
+            <tr><td><b>Monthly total</b></td><td class="num"><b>&lt; $250</b></td><td class="num"><b>$1.1–2.1k</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note" style="margin-top:12px"><b>The real cost is review time</b> — budget 15–20% of a strategist's week. Generation is cheap; taste is the constraint, so design the workflow to spend it only at the top of the funnel.</div>
+    </div>
+    <div>
+      <div class="mini">What breaks, and the mitigation</div>
+      <div class="table-wrap">
+        <table style="min-width:0">
+          <tbody>
+            <tr><td><b>Samey output</b></td><td>Archive dedupe, per-client style memory, human art direction at concept stage.</td></tr>
+            <tr><td><b>Hallucinated numbers</b></td><td>Metrics and offer facts computed or locked in code; the model explains only.</td></tr>
+            <tr><td><b>Model drift / vendor change</b></td><td>Prompts and eval sets in Git, LiteLLM gateway, pinned versions, monthly regression run.</td></tr>
+            <tr><td><b>Meta API or policy change</b></td><td>Adapter layer with a CSV fallback, sandbox app, no live access without approval.</td></tr>
+            <tr><td><b>Likeness, disclosure, music rights</b></td><td>Consent log, AI-disclosure tags, licensed library, legal checklist per vertical.</td></tr>
+            <tr><td><b>Over-automation erodes trust</b></td><td>Approval tiers, visible audit log, a human name on anything client-facing.</td></tr>
+            <tr><td><b>Attribution error</b></td><td>Never act on one day; 7-day windows, reconciliation, and a stated confidence.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>If I joined — the first 90 days, personally</h3>
+      <p style="margin-bottom:10px">I would own Toast and the brief schema myself, because everything else depends on them, and pair with one buyer and one strategist rather than rolling out to everyone at once.</p>
+      <div class="kv">
+        <b>Days 1–14</b> — two pilot clients live on Toast; brief schema agreed; copy pipeline running.<br>
+        <b>Days 15–45</b> — idea engine and static templates in a weekly rhythm; measure idea hit-rate from week one.<br>
+        <b>Days 46–90</b> — UGC hybrid pilot, video assembly, and the media buyer at L3 with guardrails.
+      </div>
+    </div>
+    <div class="card">
+      <h3>What I would build next</h3>
+      <div class="kv">
+        1. Consolidate into one internal <b>“CerealBox Studio”</b> — one brief in, all assets out, one approval queue.<br>
+        2. <b>Creative performance loop:</b> automatically read results into angle × format × hook priors.<br>
+        3. <b>Compliance packs</b> per vertical, so regulated clients get a tuned reviewer rather than a generic one.<br>
+        4. <b>Client-facing portal</b> — the reports you already have, in a login, cutting account-manager hours.<br>
+        5. One named owner for the system. It needs an owner more than it needs another tool.
+      </div>
+    </div>
+  </div>
+
+  <div class="hr"></div>
+  <div class="note"><b>What I would want to know from you:</b> which two clients are most painful to report on today, what the media buyers actually do in the first hour of their day, and where a wrong AI-generated claim would be least forgivable. Those three answers would change the order of the roadmap more than any tool choice.</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="hr"></div>
+  CerealBox Agency — AI Automation &amp; Creative Workflow Challenge · Hassan Khawaja<br>
+  Synthetic Meta data · pipeline: <span class="mono">make_sample_data.py → toast_pipeline.py → build.py</span> · no live accounts, systems or client data were accessed.
+</footer>
+
+<script id="toast-data" type="application/json">{"generated_at":"2026-11-10 13:09 UTC","data_end":"2026-11-09","source_rows":448,"window_label":"trailing 7 days vs prior 7 days","totals":{"7":{"spend":40172.21,"value":155966.04,"conversions":1317,"clicks":28573,"impressions":1953574,"roas":3.88,"cpa":30.5,"ctr":0.01463,"cpm":20.56,"cpc":1.41,"frequency":2.68,"delta":{"spend":0.043266019498158795,"conversions":-0.11670020120724346,"value":-0.11815950574064638,"ctr":-0.02009377093101138,"cpm":0.013307047806801359,"cpa":0.18079752226093698,"roas":-0.15468409586056645,"frequency":0.05928853754940726,"cpc":0.03676470588235281}},"14":{"spend":78678.41,"value":332830.27,"conversions":2808,"clicks":56909,"impressions":3851630,"roas":4.23,"cpa":28.02,"ctr":0.01478,"cpm":20.43,"cpc":1.38,"frequency":4.18,"delta":{"spend":-0.032947082035842325,"conversions":-0.1903114186851211,"value":-0.195476266037313,"ctr":-0.04645161290322582,"cpm":0.02870090634441089,"cpa":0.19437340153452679,"roas":-0.16732283464566922,"frequency":0.09138381201044377,"cpc":0.07812499999999989}}},"accounts":[{"id":"act_1041","name":"Harbor Dental","vertical":"Local services / lead-gen","currency":"USD","target_cpa":120.0,"monthly_budget":30000.0,"kpis":{"7":{"cur":{"spend":6582.33,"impressions":276019,"clicks":4591,"conversions":357,"value":46093.01,"ctr":0.01663,"cpm":23.85,"cpc":1.43,"cvr":0.0778,"cpa":18.44,"roas":7.0,"frequency":3.33},"prev":{"spend":6156.4,"impressions":266739,"clicks":4647,"conversions":364,"value":47561.42,"ctr":0.01742,"cpm":23.08,"cpc":1.32,"cvr":0.0783,"cpa":16.91,"roas":7.73,"frequency":2.88},"delta":{"spend":0.06918491326099674,"conversions":-0.019230769230769232,"value":-0.03087397306472339,"ctr":-0.045350172215844,"cpm":0.03336221837088402,"cpa":0.09047900650502667,"roas":-0.09443725743855115,"frequency":0.15625000000000006,"cpc":0.08333333333333323}},"14":{"cur":{"spend":12738.73,"impressions":542758,"clicks":9238,"conversions":721,"value":93654.43,"ctr":0.01702,"cpm":23.47,"cpc":1.38,"cvr":0.078,"cpa":17.67,"roas":7.35,"frequency":4.96},"prev":{"spend":12796.34,"impressions":566917,"clicks":10704,"conversions":882,"value":114760.29,"ctr":0.01888,"cpm":22.57,"cpc":1.2,"cvr":0.0824,"cpa":14.51,"roas":8.97,"frequency":3.93},"delta":{"spend":-0.004502068560228986,"conversions":-0.18253968253968253,"value":-0.1839125711515717,"ctr":-0.0985169491525424,"cpm":0.039875941515285715,"cpa":0.2177808407994488,"roas":-0.1806020066889633,"frequency":0.2620865139949109,"cpc":0.14999999999999997}}},"pacing":{"monthly_budget":30000.0,"spent_7d":6582.33,"pace_7d":7000.0,"ratio":0.94,"projected_month":28209.99},"series":[{"date":"2026-10-27","spend":829.44,"value":6659.55,"roas":8.03,"conversions":52,"cpa":15.95},{"date":"2026-10-28","spend":882.98,"value":6720.27,"roas":7.61,"conversions":52,"cpa":16.98},{"date":"2026-10-29","spend":859.39,"value":6523.44,"roas":7.59,"conversions":49,"cpa":17.54},{"date":"2026-10-30","spend":878.19,"value":7022.86,"roas":8.0,"conversions":54,"cpa":16.26},{"date":"2026-10-31","spend":898.71,"value":7075.63,"roas":7.87,"conversions":54,"cpa":16.64},{"date":"2026-11-01","spend":929.95,"value":6836.85,"roas":7.35,"conversions":52,"cpa":17.88},{"date":"2026-11-02","spend":877.74,"value":6722.82,"roas":7.66,"conversions":51,"cpa":17.21},{"date":"2026-11-03","spend":929.7,"value":6995.0,"roas":7.52,"conversions":54,"cpa":17.22},{"date":"2026-11-04","spend":913.26,"value":6732.17,"roas":7.37,"conversions":52,"cpa":17.56},{"date":"2026-11-05","spend":961.03,"value":6370.04,"roas":6.63,"conversions":49,"cpa":19.61},{"date":"2026-11-06","spend":985.11,"value":6985.38,"roas":7.09,"conversions":54,"cpa":18.24},{"date":"2026-11-07","spend":878.17,"value":6165.29,"roas":7.02,"conversions":48,"cpa":18.3},{"date":"2026-11-08","spend":944.38,"value":6059.15,"roas":6.42,"conversions":47,"cpa":20.09},{"date":"2026-11-09","spend":970.68,"value":6785.98,"roas":6.99,"conversions":53,"cpa":18.31}],"rows":{"7":[{"campaign":"Implants - Search Intent","adset":"Implants - Broad","kpis":{"spend":4009.73,"impressions":148634,"clicks":2599,"conversions":152,"value":19505.99,"ctr":0.01749,"cpm":26.98,"cpc":1.54,"cvr":0.0585,"cpa":26.38,"roas":4.86,"frequency":2.4},"prev":{"spend":3765.32,"impressions":141190,"clicks":2517,"conversions":145,"value":18870.49,"ctr":0.01783,"cpm":26.67,"cpc":1.5,"cvr":0.0576,"cpa":25.97,"roas":5.01,"frequency":2.32},"delta":{"spend":0.06491081767286708,"conversions":0.04827586206896552,"value":0.03367692094905855,"ctr":-0.019068984856982617,"cpm":0.011623547056617873,"cpa":0.01578744705429342,"roas":-0.029940119760478938,"frequency":0.03448275862068969,"cpc":0.02666666666666669},"flags":[]},{"campaign":"Implants - Search Intent","adset":"Retargeting - 180d","kpis":{"spend":2572.6,"impressions":127385,"clicks":1992,"conversions":205,"value":26587.02,"ctr":0.01564,"cpm":20.2,"cpc":1.29,"cvr":0.1029,"cpa":12.55,"roas":10.33,"frequency":4.41},"prev":{"spend":2391.08,"impressions":125549,"clicks":2130,"conversions":219,"value":28690.93,"ctr":0.01697,"cpm":19.04,"cpc":1.12,"cvr":0.1028,"cpa":10.92,"roas":12.0,"frequency":3.51},"delta":{"spend":0.0759154858892216,"conversions":-0.0639269406392694,"value":-0.07333014301035205,"ctr":-0.07837360047142003,"cpm":0.06092436974789917,"cpa":0.14926739926739935,"roas":-0.13916666666666666,"frequency":0.25641025641025655,"cpc":0.15178571428571422},"flags":[{"code":"audience_fatigue","severity":"high","entity_level":"adset","entity":"Retargeting - 180d","evidence":"Frequency 4.41 (+0.90 w/w), CTR 1.56% (-8%)","recommendation":"Refresh creative and widen or exclude the most saturated segment.","action":{"label":"Queue 2 new creatives","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":73.5}]}],"14":[{"campaign":"Implants - Search Intent","adset":"Implants - Broad","kpis":{"spend":7775.05,"impressions":289824,"clicks":5116,"conversions":297,"value":38376.48,"ctr":0.01765,"cpm":26.83,"cpc":1.52,"cvr":0.0581,"cpa":26.18,"roas":4.94,"frequency":3.8},"prev":{"spend":7828.0,"impressions":299189,"clicks":5521,"conversions":321,"value":41910.42,"ctr":0.01845,"cpm":26.16,"cpc":1.42,"cvr":0.0581,"cpa":24.39,"roas":5.35,"frequency":3.61},"delta":{"spend":-0.006764179867143564,"conversions":-0.07476635514018691,"value":-0.08432127380255304,"ctr":-0.043360433604336154,"cpm":0.025611620795106965,"cpa":0.07339073390733904,"roas":-0.07663551401869145,"frequency":0.05263157894736841,"cpc":0.07042253521126768},"flags":[]},{"campaign":"Implants - Search Intent","adset":"Retargeting - 180d","kpis":{"spend":4963.68,"impressions":252934,"clicks":4122,"conversions":424,"value":55277.95,"ctr":0.0163,"cpm":19.62,"cpc":1.2,"cvr":0.1029,"cpa":11.71,"roas":11.14,"frequency":6.29},"prev":{"spend":4968.34,"impressions":267728,"clicks":5183,"conversions":561,"value":72849.87,"ctr":0.01936,"cpm":18.56,"cpc":0.96,"cvr":0.1082,"cpa":8.86,"roas":14.66,"frequency":4.28},"delta":{"spend":-0.0009379390299375354,"conversions":-0.24420677361853832,"value":-0.24120729384966644,"ctr":-0.15805785123966945,"cpm":0.05711206896551737,"cpa":0.32167042889390535,"roas":-0.24010914051841742,"frequency":0.469626168224299,"cpc":0.25},"flags":[{"code":"audience_fatigue","severity":"high","entity_level":"adset","entity":"Retargeting - 180d","evidence":"Frequency 6.29 (+2.01 w/w), CTR 1.63% (-16%)","recommendation":"Refresh creative and widen or exclude the most saturated segment.","action":{"label":"Queue 2 new creatives","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":70.91},{"code":"cpa_inflation","severity":"medium","entity_level":"adset","entity":"Retargeting - 180d","evidence":"CPA $12 vs $9 (+32%); CPM +6%, CVR 10.3% (-5%)","recommendation":"Check creative and audience overlap; shift budget to the best ad set while it is investigated.","action":{"label":"Reduce budget 20%","api":"POST /{adset_id}/?daily_budget=-20%","auto_eligible":false},"at_stake_per_day":88.64}]}]},"alerts":[{"id":"act_1041-retargeting---180d","account":"Harbor Dental","account_id":"act_1041","severity":"high","code":"audience_fatigue","title":"Audience fatigue","entity":"Implants - Search Intent / Retargeting - 180d","why":["Frequency 4.41 (+0.90 w/w), CTR 1.56% (-8%)"],"recommendation":"Refresh creative and widen or exclude the most saturated segment.","action":{"label":"Queue 2 new creatives","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":73.5,"secondary_flags":[]}],"insight":"Harbor Dental spent $6,582 in the last 7 days at ROAS 7.00 (-9% w/w) and CPA $18 vs a $120 target. 1 item(s) need attention; the most material is \u201caudience fatigue\u201d on Retargeting - 180d. Read together with pacing: spend is behind plan, so efficiency fixes should not be judged in isolation from delivery."},{"id":"act_2087","name":"NorthPeak Outdoors","vertical":"Ecommerce / DTC","currency":"USD","target_cpa":45.0,"monthly_budget":55000.0,"kpis":{"7":{"cur":{"spend":15596.96,"impressions":947858,"clicks":13735,"conversions":489,"value":45029.76,"ctr":0.01449,"cpm":16.45,"cpc":1.14,"cvr":0.0356,"cpa":31.9,"roas":2.89,"frequency":2.53},"prev":{"spend":14506.42,"impressions":897997,"clicks":13190,"conversions":620,"value":57143.48,"ctr":0.01469,"cpm":16.15,"cpc":1.1,"cvr":0.047,"cpa":23.4,"roas":3.94,"frequency":2.46},"delta":{"spend":0.07517637018644152,"conversions":-0.21129032258064517,"value":-0.21198778933309628,"ctr":-0.013614703880190641,"cpm":0.0185758513931889,"cpa":0.3632478632478633,"roas":-0.266497461928934,"frequency":0.028455284552845465,"cpc":0.03636363636363619}},"14":{"cur":{"spend":30103.38,"impressions":1845855,"clicks":26925,"conversions":1109,"value":102173.24,"ctr":0.01459,"cpm":16.31,"cpc":1.12,"cvr":0.0412,"cpa":27.14,"roas":3.39,"frequency":4.01},"prev":{"spend":30723.19,"impressions":1918384,"clicks":29047,"conversions":1393,"value":128505.19,"ctr":0.01514,"cpm":16.02,"cpc":1.06,"cvr":0.048,"cpa":22.06,"roas":4.18,"frequency":3.84},"delta":{"spend":-0.02017401187832376,"conversions":-0.2038765254845657,"value":-0.20490962271640545,"ctr":-0.036327608982826956,"cpm":0.01810237203495625,"cpa":0.23028105167724397,"roas":-0.1889952153110047,"frequency":0.044270833333333315,"cpc":0.05660377358490571}}},"pacing":{"monthly_budget":55000.0,"spent_7d":15596.96,"pace_7d":12833.33,"ratio":1.215,"projected_month":66844.11},"series":[{"date":"2026-10-27","spend":1944.19,"value":7903.29,"roas":4.07,"conversions":86,"cpa":22.61},{"date":"2026-10-28","spend":2046.45,"value":7756.99,"roas":3.79,"conversions":85,"cpa":24.08},{"date":"2026-10-29","spend":2102.4,"value":8113.04,"roas":3.86,"conversions":87,"cpa":24.17},{"date":"2026-10-30","spend":2030.56,"value":8206.31,"roas":4.04,"conversions":89,"cpa":22.82},{"date":"2026-10-31","spend":2131.17,"value":8423.98,"roas":3.95,"conversions":91,"cpa":23.42},{"date":"2026-11-01","spend":2143.98,"value":9013.68,"roas":4.2,"conversions":99,"cpa":21.66},{"date":"2026-11-02","spend":2107.67,"value":7726.19,"roas":3.67,"conversions":83,"cpa":25.39},{"date":"2026-11-03","spend":2222.6,"value":6717.04,"roas":3.02,"conversions":73,"cpa":30.45},{"date":"2026-11-04","spend":2190.52,"value":6710.36,"roas":3.06,"conversions":73,"cpa":30.01},{"date":"2026-11-05","spend":2318.56,"value":6318.08,"roas":2.73,"conversions":69,"cpa":33.6},{"date":"2026-11-06","spend":2116.36,"value":6050.43,"roas":2.86,"conversions":65,"cpa":32.56},{"date":"2026-11-07","spend":2276.02,"value":6552.07,"roas":2.88,"conversions":71,"cpa":32.06},{"date":"2026-11-08","spend":2273.51,"value":6491.32,"roas":2.86,"conversions":71,"cpa":32.02},{"date":"2026-11-09","spend":2199.39,"value":6190.46,"roas":2.81,"conversions":67,"cpa":32.83}],"rows":{"7":[{"campaign":"Retargeting - 14d","adset":"Cart Abandoners","kpis":{"spend":2813.29,"impressions":124999,"clicks":3313,"conversions":292,"value":26408.7,"ctr":0.0265,"cpm":22.51,"cpc":0.85,"cvr":0.0881,"cpa":9.63,"roas":9.39,"frequency":3.47},"prev":{"spend":2729.46,"impressions":120675,"clicks":3317,"conversions":298,"value":26786.99,"ctr":0.02749,"cpm":22.62,"cpc":0.82,"cvr":0.0898,"cpa":9.16,"roas":9.81,"frequency":3.31},"delta":{"spend":0.030713034812746818,"conversions":-0.020134228187919462,"value":-0.014122154075541926,"ctr":-0.03601309567115319,"cpm":-0.004862953138815182,"cpa":0.05131004366812234,"roas":-0.042813455657492346,"frequency":0.048338368580060465,"cpc":0.03658536585365857},"flags":[]},{"campaign":"Prospecting - Q4","adset":"Cold - Broad","kpis":{"spend":7991.86,"impressions":553596,"clicks":7349,"conversions":110,"value":10446.4,"ctr":0.01328,"cpm":14.44,"cpc":1.09,"cvr":0.015,"cpa":72.65,"roas":1.31,"frequency":2.41},"prev":{"spend":7388.52,"impressions":524133,"clicks":6929,"conversions":231,"value":21965.62,"ctr":0.01322,"cpm":14.1,"cpc":1.07,"cvr":0.0333,"cpa":31.98,"roas":2.97,"frequency":2.35},"delta":{"spend":0.08165911440992231,"conversions":-0.5238095238095238,"value":-0.5244204352073831,"ctr":0.004538577912254107,"cpm":0.024113475177304954,"cpa":1.2717323327079424,"roas":-0.5589225589225589,"frequency":0.025531914893617044,"cpc":0.018691588785046745},"flags":[{"code":"cpa_inflation","severity":"high","entity_level":"adset","entity":"Cold - Broad","evidence":"CPA $73 vs $32 (+127%); CPM +2%, CVR 1.5% (-55%)","recommendation":"Check creative and audience overlap; shift budget to the best ad set while it is investigated.","action":{"label":"Reduce budget 20%","api":"POST /{adset_id}/?daily_budget=-20%","auto_eligible":false},"at_stake_per_day":285.42},{"code":"over_target_cpa","severity":"high","entity_level":"adset","entity":"Cold - Broad","evidence":"CPA $73 vs target $45","recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":342.51}]},{"campaign":"Prospecting - Q4","adset":"Interest - Hiking","kpis":{"spend":4791.81,"impressions":269263,"clicks":3073,"conversions":87,"value":8174.66,"ctr":0.01141,"cpm":17.8,"cpc":1.56,"cvr":0.0283,"cpa":55.08,"roas":1.71,"frequency":2.33},"prev":{"spend":4388.44,"impressions":253189,"clicks":2944,"conversions":91,"value":8390.87,"ctr":0.01163,"cpm":17.33,"cpc":1.49,"cvr":0.0309,"cpa":48.22,"roas":1.91,"frequency":2.28},"delta":{"spend":0.09191648968654029,"conversions":-0.04395604395604396,"value":-0.02576729230699569,"ctr":-0.018916595012897653,"cpm":0.02712060011540695,"cpa":0.14226462048942345,"roas":-0.10471204188481674,"frequency":0.02192982456140363,"cpc":0.046979865771812124},"flags":[]}],"14":[{"campaign":"Retargeting - 14d","adset":"Cart Abandoners","kpis":{"spend":5542.75,"impressions":245674,"clicks":6630,"conversions":590,"value":53195.69,"ctr":0.02699,"cpm":22.56,"cpc":0.84,"cvr":0.089,"cpa":9.39,"roas":9.6,"frequency":5.45},"prev":{"spend":5759.94,"impressions":260625,"clicks":7321,"conversions":662,"value":59724.27,"ctr":0.02809,"cpm":22.1,"cpc":0.79,"cvr":0.0904,"cpa":8.7,"roas":10.37,"frequency":5.07},"delta":{"spend":-0.037706990003368024,"conversions":-0.10876132930513595,"value":-0.10931201000866138,"ctr":-0.03915984336062657,"cpm":0.020814479638008927,"cpa":0.07931034482758637,"roas":-0.07425265188042426,"frequency":0.0749506903353057,"cpc":0.06329113924050624},"flags":[]},{"campaign":"Prospecting - Q4","adset":"Cold - Broad","kpis":{"spend":15380.38,"impressions":1077729,"clicks":14278,"conversions":341,"value":32412.02,"ctr":0.01325,"cpm":14.27,"cpc":1.08,"cvr":0.0239,"cpa":45.1,"roas":2.11,"frequency":3.82},"prev":{"spend":15716.55,"impressions":1123662,"clicks":15340,"conversions":538,"value":51130.8,"ctr":0.01365,"cpm":13.99,"cpc":1.02,"cvr":0.0351,"cpa":29.21,"roas":3.25,"frequency":3.67},"delta":{"spend":-0.021389554323308874,"conversions":-0.36617100371747213,"value":-0.36609597346413514,"ctr":-0.02930402930402938,"cpm":0.02001429592566114,"cpa":0.5439917836357412,"roas":-0.35076923076923083,"frequency":0.04087193460490461,"cpc":0.058823529411764754},"flags":[{"code":"cpa_inflation","severity":"high","entity_level":"adset","entity":"Cold - Broad","evidence":"CPA $45 vs $29 (+54%); CPM +2%, CVR 2.4% (-32%)","recommendation":"Check creative and audience overlap; shift budget to the best ad set while it is investigated.","action":{"label":"Reduce budget 20%","api":"POST /{adset_id}/?daily_budget=-20%","auto_eligible":false},"at_stake_per_day":274.65}]},{"campaign":"Prospecting - Q4","adset":"Interest - Hiking","kpis":{"spend":9180.25,"impressions":522452,"clicks":6017,"conversions":178,"value":16565.53,"ctr":0.01152,"cpm":17.57,"cpc":1.53,"cvr":0.0296,"cpa":51.57,"roas":1.8,"frequency":3.71},"prev":{"spend":9246.7,"impressions":534097,"clicks":6386,"conversions":193,"value":17650.12,"ctr":0.01196,"cpm":17.31,"cpc":1.45,"cvr":0.0302,"cpa":47.91,"roas":1.91,"frequency":3.59},"delta":{"spend":-0.007186347561832948,"conversions":-0.07772020725388601,"value":-0.06144944057037574,"ctr":-0.036789297658862824,"cpm":0.015020219526285475,"cpa":0.07639323731997504,"roas":-0.05759162303664915,"frequency":0.03342618384401117,"cpc":0.055172413793103496},"flags":[]}]},"alerts":[{"id":"act_2087-cold---broad","account":"NorthPeak Outdoors","account_id":"act_2087","severity":"high","code":"zero_conversion_ad","title":"Zero conversions","entity":"Prospecting - Q4 / Cold - Broad / Video - Trail Test A","why":["CPA $73 vs $32 (+127%); CPM +2%, CVR 1.5% (-55%)","CPA $73 vs target $45","$4,317 spent in 7 days with 0 conversions (was 128 conv at $4,027)"],"recommendation":"Pause the ad and check tracking + landing page before relaunching.","action":{"label":"Pause ad","api":"POST /Video - Trail Test A/?status=PAUSED","auto_eligible":false},"at_stake_per_day":1244.6,"secondary_flags":["over_target_cpa","zero_conversion_ad"]},{"id":"act_2087-pacing","account":"NorthPeak Outdoors","account_id":"act_2087","severity":"medium","code":"budget_pacing","title":"Pacing ahead of budget","entity":"NorthPeak Outdoors \u00b7 account","why":["7-day spend $15,597 vs $12,833 plan (+22%)","Projected month $66,844 vs $55,000 budget"],"recommendation":"Cap the top-spending ad set by ~15% or pull budget forward only where CPA is under target.","action":{"label":"Adjust daily budget","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":394.8}],"insight":"NorthPeak Outdoors spent $15,597 in the last 7 days at ROAS 2.89 (-27% w/w) and CPA $32 vs a $45 target. 2 item(s) need attention; the most material is \u201czero conversions\u201d on Video - Trail Test A. Read together with pacing: spend is ahead of plan, so efficiency fixes should not be judged in isolation from delivery."},{"id":"act_3310","name":"Calder Foundation","vertical":"Nonprofit / fundraising","currency":"USD","target_cpa":75.0,"monthly_budget":50000.0,"kpis":{"7":{"cur":{"spend":12129.83,"impressions":570021,"clicks":9472,"conversions":435,"value":52243.86,"ctr":0.01662,"cpm":21.28,"cpc":1.28,"cvr":0.0459,"cpa":27.88,"roas":4.31,"frequency":2.68},"prev":{"spend":11214.92,"impressions":543176,"clicks":9282,"conversions":452,"value":54385.99,"ctr":0.01709,"cpm":20.65,"cpc":1.21,"cvr":0.0487,"cpa":24.81,"roas":4.85,"frequency":2.52},"delta":{"spend":0.08157971701982715,"conversions":-0.03761061946902655,"value":-0.039387533443815174,"ctr":-0.027501462843768382,"cpm":0.030508474576271313,"cpa":0.1237404272470778,"roas":-0.11134020618556703,"frequency":0.06349206349206354,"cpc":0.05785123966942154}},"14":{"cur":{"spend":23344.75,"impressions":1113197,"clicks":18754,"conversions":887,"value":106629.85,"ctr":0.01685,"cpm":20.97,"cpc":1.24,"cvr":0.0473,"cpa":26.32,"roas":4.57,"frequency":4.18},"prev":{"spend":23290.22,"impressions":1188963,"clicks":20862,"conversions":1064,"value":128009.62,"ctr":0.01755,"cpm":19.59,"cpc":1.12,"cvr":0.051,"cpa":21.89,"roas":5.5,"frequency":3.82},"delta":{"spend":0.00234132610168555,"conversions":-0.16635338345864661,"value":-0.1670169007610521,"ctr":-0.039886039886039844,"cpm":0.07044410413476258,"cpa":0.20237551393330286,"roas":-0.16909090909090904,"frequency":0.09424083769633505,"cpc":0.10714285714285703}}},"pacing":{"monthly_budget":50000.0,"spent_7d":12129.83,"pace_7d":11666.67,"ratio":1.04,"projected_month":51984.99},"series":[{"date":"2026-10-27","spend":1524.92,"value":7226.42,"roas":4.74,"conversions":60,"cpa":25.42},{"date":"2026-10-28","spend":1585.74,"value":7950.99,"roas":5.01,"conversions":66,"cpa":24.03},{"date":"2026-10-29","spend":1568.21,"value":8647.0,"roas":5.51,"conversions":72,"cpa":21.78},{"date":"2026-10-30","spend":1600.33,"value":8239.8,"roas":5.15,"conversions":68,"cpa":23.53},{"date":"2026-10-31","spend":1578.85,"value":7678.5,"roas":4.86,"conversions":64,"cpa":24.67},{"date":"2026-11-01","spend":1661.02,"value":7046.71,"roas":4.24,"conversions":59,"cpa":28.15},{"date":"2026-11-02","spend":1695.85,"value":7596.57,"roas":4.48,"conversions":63,"cpa":26.92},{"date":"2026-11-03","spend":1644.67,"value":6900.64,"roas":4.2,"conversions":57,"cpa":28.85},{"date":"2026-11-04","spend":1727.01,"value":7220.96,"roas":4.18,"conversions":60,"cpa":28.78},{"date":"2026-11-05","spend":1798.09,"value":7948.2,"roas":4.42,"conversions":66,"cpa":27.24},{"date":"2026-11-06","spend":1811.39,"value":7684.89,"roas":4.24,"conversions":64,"cpa":28.3},{"date":"2026-11-07","spend":1737.36,"value":7314.3,"roas":4.21,"conversions":61,"cpa":28.48},{"date":"2026-11-08","spend":1732.64,"value":7739.33,"roas":4.47,"conversions":65,"cpa":26.66},{"date":"2026-11-09","spend":1678.67,"value":7435.54,"roas":4.43,"conversions":62,"cpa":27.08}],"rows":{"7":[{"campaign":"Year-End Giving","adset":"Lapsed Donors 12m+","kpis":{"spend":5473.74,"impressions":206577,"clicks":2783,"conversions":58,"value":7094.48,"ctr":0.01347,"cpm":26.5,"cpc":1.97,"cvr":0.0208,"cpa":94.37,"roas":1.3,"frequency":3.07},"prev":{"spend":5038.46,"impressions":201132,"clicks":2848,"conversions":80,"value":9665.1,"ctr":0.01416,"cpm":25.05,"cpc":1.77,"cvr":0.0281,"cpa":62.98,"roas":1.92,"frequency":2.78},"delta":{"spend":0.08639147676075622,"conversions":-0.275,"value":-0.26596931226785037,"ctr":-0.048728813559322126,"cpm":0.057884231536926116,"cpa":0.498412194347412,"roas":-0.32291666666666663,"frequency":0.10431654676258995,"cpc":0.11299435028248585},"flags":[{"code":"cpa_inflation","severity":"high","entity_level":"adset","entity":"Lapsed Donors 12m+","evidence":"CPA $94 vs $63 (+50%); CPM +6%, CVR 2.1% (-26%)","recommendation":"Check creative and audience overlap; shift budget to the best ad set while it is investigated.","action":{"label":"Reduce budget 20%","api":"POST /{adset_id}/?daily_budget=-20%","auto_eligible":false},"at_stake_per_day":195.49},{"code":"over_target_cpa","severity":"medium","entity_level":"adset","entity":"Lapsed Donors 12m+","evidence":"CPA $94 vs target $75","recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":234.59}]},{"campaign":"Year-End Giving","adset":"Lookalike - Donors 1%","kpis":{"spend":4445.05,"impressions":227806,"clicks":2794,"conversions":81,"value":9693.31,"ctr":0.01226,"cpm":19.51,"cpc":1.59,"cvr":0.029,"cpa":54.88,"roas":2.18,"frequency":2.4},"prev":{"spend":4046.89,"impressions":210838,"clicks":2675,"conversions":80,"value":9502.82,"ctr":0.01269,"cpm":19.19,"cpc":1.51,"cvr":0.0299,"cpa":50.59,"roas":2.35,"frequency":2.32},"delta":{"spend":0.09838666235059523,"conversions":0.0125,"value":0.02004562856078509,"ctr":-0.033884948778565786,"cpm":0.0166753517457009,"cpa":0.08479936746392565,"roas":-0.07234042553191486,"frequency":0.03448275862068969,"cpc":0.052980132450331174},"flags":[]},{"campaign":"Year-End Giving","adset":"Warm - Email List","kpis":{"spend":2211.04,"impressions":135638,"clicks":3895,"conversions":296,"value":35456.07,"ctr":0.02872,"cpm":16.3,"cpc":0.57,"cvr":0.076,"cpa":7.47,"roas":16.04,"frequency":2.55},"prev":{"spend":2129.57,"impressions":131206,"clicks":3759,"conversions":292,"value":35218.07,"ctr":0.02865,"cpm":16.23,"cpc":0.57,"cvr":0.0777,"cpa":7.29,"roas":16.54,"frequency":2.45},"delta":{"spend":0.038256549444253905,"conversions":0.0136986301369863,"value":0.006757894455885856,"ctr":0.002443280977312413,"cpm":0.004313000616142962,"cpa":0.02469135802469132,"roas":-0.030229746070133012,"frequency":0.040816326530612096,"cpc":0.0},"flags":[]}],"14":[{"campaign":"Year-End Giving","adset":"Lapsed Donors 12m+","kpis":{"spend":10512.2,"impressions":407709,"clicks":5631,"conversions":138,"value":16759.58,"ctr":0.01381,"cpm":25.78,"cpc":1.87,"cvr":0.0245,"cpa":76.18,"roas":1.59,"frequency":4.7},"prev":{"spend":10719.51,"impressions":481605,"clicks":7432,"conversions":290,"value":35086.54,"ctr":0.01543,"cpm":22.26,"cpc":1.44,"cvr":0.039,"cpa":36.96,"roas":3.27,"frequency":4.04},"delta":{"spend":-0.0193395033914796,"conversions":-0.5241379310344828,"value":-0.5223359157101269,"ctr":-0.1049902786779002,"cpm":0.1581311769991015,"cpa":1.0611471861471864,"roas":-0.5137614678899083,"frequency":0.1633663366336634,"cpc":0.2986111111111112},"flags":[{"code":"audience_fatigue","severity":"high","entity_level":"adset","entity":"Lapsed Donors 12m+","evidence":"Frequency 4.70 (+0.66 w/w), CTR 1.38% (-10%)","recommendation":"Refresh creative and widen or exclude the most saturated segment.","action":{"label":"Queue 2 new creatives","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":150.17},{"code":"cpa_inflation","severity":"high","entity_level":"adset","entity":"Lapsed Donors 12m+","evidence":"CPA $76 vs $37 (+106%); CPM +16%, CVR 2.5% (-37%)","recommendation":"Check creative and audience overlap; shift budget to the best ad set while it is investigated.","action":{"label":"Reduce budget 20%","api":"POST /{adset_id}/?daily_budget=-20%","auto_eligible":false},"at_stake_per_day":187.72}]},{"campaign":"Year-End Giving","adset":"Lookalike - Donors 1%","kpis":{"spend":8491.94,"impressions":438644,"clicks":5469,"conversions":161,"value":19196.13,"ctr":0.01247,"cpm":19.36,"cpc":1.55,"cvr":0.0294,"cpa":52.74,"roas":2.26,"frequency":3.8},"prev":{"spend":8425.93,"impressions":450797,"clicks":5846,"conversions":172,"value":20708.73,"ctr":0.01297,"cpm":18.69,"cpc":1.44,"cvr":0.0294,"cpa":48.99,"roas":2.46,"frequency":3.61},"delta":{"spend":0.007834150058213184,"conversions":-0.06395348837209303,"value":-0.07304165924226153,"ctr":-0.038550501156515066,"cpm":0.035848047084002035,"cpa":0.07654623392529088,"roas":-0.08130081300813015,"frequency":0.05263157894736841,"cpc":0.07638888888888896},"flags":[]},{"campaign":"Year-End Giving","adset":"Warm - Email List","kpis":{"spend":4340.61,"impressions":266844,"clicks":7654,"conversions":588,"value":70674.14,"ctr":0.02868,"cpm":16.27,"cpc":0.57,"cvr":0.0768,"cpa":7.38,"roas":16.28,"frequency":4.02},"prev":{"spend":4144.78,"impressions":256561,"clicks":7584,"conversions":602,"value":72214.35,"ctr":0.02956,"cpm":16.16,"cpc":0.55,"cvr":0.0794,"cpa":6.89,"roas":17.42,"frequency":3.79},"delta":{"spend":0.04724738104314341,"conversions":-0.023255813953488372,"value":-0.021328309401109424,"ctr":-0.02976995940460077,"cpm":0.006806930693069271,"cpa":0.07111756168359945,"roas":-0.0654420206659013,"frequency":0.06068601583113444,"cpc":0.03636363636363619},"flags":[]}]},"alerts":[{"id":"act_3310-lapsed-donors-12m+","account":"Calder Foundation","account_id":"act_3310","severity":"high","code":"cpa_inflation","title":"CPA inflation week on week","entity":"Year-End Giving / Lapsed Donors 12m+","why":["CPA $94 vs $63 (+50%); CPM +6%, CVR 2.1% (-26%)","CPA $94 vs target $75"],"recommendation":"Check creative and audience overlap; shift budget to the best ad set while it is investigated.","action":{"label":"Reduce budget 20%","api":"POST /{adset_id}/?daily_budget=-20%","auto_eligible":false},"at_stake_per_day":430.08,"secondary_flags":["over_target_cpa"]}],"insight":"Calder Foundation spent $12,130 in the last 7 days at ROAS 4.31 (-11% w/w) and CPA $28 vs a $75 target. 1 item(s) need attention; the most material is \u201ccpa inflation week on week\u201d on Lapsed Donors 12m+. Read together with pacing: spend is ahead of plan, so efficiency fixes should not be judged in isolation from delivery."},{"id":"act_4155","name":"Brightline Tutoring","vertical":"Education / local lead-gen","currency":"USD","target_cpa":55.0,"monthly_budget":21000.0,"kpis":{"7":{"cur":{"spend":5863.09,"impressions":159676,"clicks":775,"conversions":36,"value":12599.41,"ctr":0.00485,"cpm":36.72,"cpc":7.57,"cvr":0.0465,"cpa":162.86,"roas":2.15,"frequency":2.44},"prev":{"spend":6628.46,"impressions":190144,"clicks":1217,"conversions":55,"value":17773.34,"ctr":0.0064,"cpm":34.86,"cpc":5.45,"cvr":0.0452,"cpa":120.52,"roas":2.68,"frequency":2.36},"delta":{"spend":-0.11546724276830514,"conversions":-0.34545454545454546,"value":-0.29110622989263696,"ctr":-0.2421875,"cpm":0.05335628227194491,"cpa":0.35131098572850994,"roas":-0.19776119402985082,"frequency":0.0338983050847458,"cpc":0.3889908256880734}},"14":{"cur":{"spend":12491.55,"impressions":349820,"clicks":1992,"conversions":91,"value":30372.75,"ctr":0.00569,"cpm":35.71,"cpc":6.27,"cvr":0.0457,"cpa":137.27,"roas":2.43,"frequency":3.85},"prev":{"spend":14549.2,"impressions":421696,"clicks":2870,"conversions":129,"value":42423.41,"ctr":0.00681,"cpm":34.5,"cpc":5.07,"cvr":0.0449,"cpa":112.78,"roas":2.92,"frequency":3.69},"delta":{"spend":-0.1414270200423392,"conversions":-0.29457364341085274,"value":-0.28405684502966644,"ctr":-0.16446402349486056,"cpm":0.035072463768115965,"cpa":0.21714843057279667,"roas":-0.1678082191780821,"frequency":0.043360433604336085,"cpc":0.23668639053254423}}},"pacing":{"monthly_budget":21000.0,"spent_7d":5863.09,"pace_7d":4900.0,"ratio":1.197,"projected_month":25127.53},"series":[{"date":"2026-10-27","spend":963.03,"value":2690.16,"roas":2.79,"conversions":8,"cpa":120.38},{"date":"2026-10-28","spend":940.39,"value":2624.71,"roas":2.79,"conversions":8,"cpa":117.55},{"date":"2026-10-29","spend":980.01,"value":2623.12,"roas":2.68,"conversions":8,"cpa":122.5},{"date":"2026-10-30","spend":956.03,"value":2539.5,"roas":2.66,"conversions":8,"cpa":119.5},{"date":"2026-10-31","spend":992.53,"value":2683.94,"roas":2.7,"conversions":9,"cpa":110.28},{"date":"2026-11-01","spend":1002.97,"value":2874.27,"roas":2.87,"conversions":9,"cpa":111.44},{"date":"2026-11-02","spend":793.5,"value":1737.64,"roas":2.19,"conversions":5,"cpa":158.7},{"date":"2026-11-03","spend":839.55,"value":1834.2,"roas":2.18,"conversions":5,"cpa":167.91},{"date":"2026-11-04","spend":828.9,"value":1937.37,"roas":2.34,"conversions":6,"cpa":138.15},{"date":"2026-11-05","spend":879.86,"value":1883.86,"roas":2.14,"conversions":5,"cpa":175.97},{"date":"2026-11-06","spend":806.4,"value":1733.37,"roas":2.15,"conversions":5,"cpa":161.28},{"date":"2026-11-07","spend":828.53,"value":1790.62,"roas":2.16,"conversions":5,"cpa":165.71},{"date":"2026-11-08","spend":851.05,"value":1679.91,"roas":1.97,"conversions":5,"cpa":170.21},{"date":"2026-11-09","spend":828.8,"value":1740.08,"roas":2.1,"conversions":5,"cpa":165.76}],"rows":{"7":[{"campaign":"Open House - Nov","adset":"Open House - 15km","kpis":{"spend":0.0,"impressions":0,"clicks":0,"conversions":0,"value":0.0,"ctr":0.0,"cpm":0.0,"cpc":0.0,"cvr":0.0,"cpa":null,"roas":null,"frequency":0.0},"prev":{"spend":1303.44,"impressions":43281,"clicks":502,"conversions":20,"value":6024.73,"ctr":0.0116,"cpm":30.12,"cpc":2.6,"cvr":0.0398,"cpa":65.17,"roas":4.62,"frequency":2.31},"delta":{"spend":-1.0,"conversions":-1.0,"value":-1.0,"ctr":-1.0,"cpm":-1.0,"cpa":null,"roas":null,"frequency":-1.0,"cpc":-1.0},"flags":[{"code":"delivery_stalled","severity":"high","entity_level":"adset","entity":"Open House - 15km","evidence":"No delivery for 7 days after $1,303 in the prior week \u2014 status still ACTIVE","recommendation":"Check payment method, ad review status and audience size before assuming it is a performance issue.","action":{"label":"Inspect account","api":"GET /{adset_id}/?fields=status,effective_status","auto_eligible":false},"at_stake_per_day":186.21}]},{"campaign":"Back-to-School - Parents","adset":"Parents - Broad","kpis":{"spend":3252.07,"impressions":82458,"clicks":330,"conversions":14,"value":5170.44,"ctr":0.004,"cpm":39.44,"cpc":9.85,"cvr":0.0424,"cpa":232.29,"roas":1.59,"frequency":2.51},"prev":{"spend":3034.8,"impressions":78548,"clicks":323,"conversions":14,"value":5058.53,"ctr":0.00411,"cpm":38.64,"cpc":9.4,"cvr":0.0433,"cpa":216.77,"roas":1.67,"frequency":2.43},"delta":{"spend":0.07159285620139712,"conversions":0.0,"value":0.02212302783615,"ctr":-0.026763990267639867,"cpm":0.020703933747411935,"cpa":0.07159662314895963,"roas":-0.04790419161676638,"frequency":0.03292181069958832,"cpc":0.04787234042553184},"flags":[{"code":"over_target_cpa","severity":"high","entity_level":"adset","entity":"Parents - Broad","evidence":"CPA $232 vs target $55","recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":139.37},{"code":"ctr_below_floor","severity":"medium","entity_level":"adset","entity":"Parents - Broad","evidence":"CTR 0.40% below 0.8% floor at CPM $39","recommendation":"Hook is not landing \u2014 test new opening frames / first line before touching budget.","action":{"label":"Queue hook variants","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":46.46}]},{"campaign":"Back-to-School - Parents","adset":"Parents - Lookalike 2%","kpis":{"spend":2611.02,"impressions":77218,"clicks":445,"conversions":22,"value":7428.97,"ctr":0.00576,"cpm":33.81,"cpc":5.87,"cvr":0.0494,"cpa":118.68,"roas":2.85,"frequency":2.37},"prev":{"spend":2290.22,"impressions":68315,"clicks":392,"conversions":21,"value":6690.08,"ctr":0.00574,"cpm":33.52,"cpc":5.84,"cvr":0.0536,"cpa":109.06,"roas":2.92,"frequency":2.3},"delta":{"spend":0.14007387936530125,"conversions":0.047619047619047616,"value":0.11044561500011962,"ctr":0.0034843205574912983,"cpm":0.008651551312649138,"cpa":0.08820832569227952,"roas":-0.023972602739725974,"frequency":0.03043478260869578,"cpc":0.005136986301369906},"flags":[{"code":"over_target_cpa","severity":"high","entity_level":"adset","entity":"Parents - Lookalike 2%","evidence":"CPA $119 vs target $55","recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":111.9},{"code":"ctr_below_floor","severity":"medium","entity_level":"adset","entity":"Parents - Lookalike 2%","evidence":"CTR 0.58% below 0.8% floor at CPM $34","recommendation":"Hook is not landing \u2014 test new opening frames / first line before touching budget.","action":{"label":"Queue hook variants","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":37.3}]}],"14":[{"campaign":"Open House - Nov","adset":"Open House - 15km","kpis":{"spend":1303.44,"impressions":43281,"clicks":502,"conversions":20,"value":6024.73,"ctr":0.0116,"cpm":30.12,"cpc":2.6,"cvr":0.0398,"cpa":65.17,"roas":4.62,"frequency":3.72},"prev":{"spend":3221.03,"impressions":107042,"clicks":1292,"conversions":51,"value":15639.43,"ctr":0.01207,"cpm":30.09,"cpc":2.49,"cvr":0.0395,"cpa":63.16,"roas":4.86,"frequency":3.66},"delta":{"spend":-0.5953344116633499,"conversions":-0.6078431372549019,"value":-0.6147730447976685,"ctr":-0.03893951946975987,"cpm":0.0009970089730807956,"cpa":0.03182393920202668,"roas":-0.049382716049382755,"frequency":0.016393442622950834,"cpc":0.04417670682730918},"flags":[]},{"campaign":"Back-to-School - Parents","adset":"Parents - Broad","kpis":{"spend":6286.87,"impressions":161006,"clicks":653,"conversions":28,"value":10228.97,"ctr":0.00406,"cpm":39.05,"cpc":9.63,"cvr":0.0429,"cpa":224.53,"roas":1.63,"frequency":3.97},"prev":{"spend":6374.93,"impressions":166341,"clicks":698,"conversions":29,"value":11128.02,"ctr":0.0042,"cpm":38.32,"cpc":9.13,"cvr":0.0415,"cpa":219.83,"roas":1.75,"frequency":3.78},"delta":{"spend":-0.013813485010815868,"conversions":-0.034482758620689655,"value":-0.08079155141705362,"ctr":-0.033333333333333215,"cpm":0.01905010438413353,"cpa":0.021380157394350126,"roas":-0.06857142857142863,"frequency":0.05026455026455037,"cpc":0.054764512595837894},"flags":[{"code":"over_target_cpa","severity":"high","entity_level":"adset","entity":"Parents - Broad","evidence":"CPA $225 vs target $55","recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":134.72},{"code":"ctr_below_floor","severity":"medium","entity_level":"adset","entity":"Parents - Broad","evidence":"CTR 0.41% below 0.8% floor at CPM $39","recommendation":"Hook is not landing \u2014 test new opening frames / first line before touching budget.","action":{"label":"Queue hook variants","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":44.91}]},{"campaign":"Back-to-School - Parents","adset":"Parents - Lookalike 2%","kpis":{"spend":4901.24,"impressions":145533,"clicks":837,"conversions":43,"value":14119.05,"ctr":0.00575,"cpm":33.68,"cpc":5.86,"cvr":0.0514,"cpa":113.98,"roas":2.88,"frequency":3.75},"prev":{"spend":4953.24,"impressions":148313,"clicks":880,"conversions":49,"value":15655.96,"ctr":0.00593,"cpm":33.4,"cpc":5.63,"cvr":0.0557,"cpa":101.09,"roas":3.16,"frequency":3.6},"delta":{"spend":-0.010498178969724867,"conversions":-0.12244897959183673,"value":-0.09816772653992473,"ctr":-0.03035413153457006,"cpm":0.008383233532934166,"cpa":0.12751013947967157,"roas":-0.08860759493670893,"frequency":0.041666666666666644,"cpc":0.040852575488454786},"flags":[{"code":"over_target_cpa","severity":"high","entity_level":"adset","entity":"Parents - Lookalike 2%","evidence":"CPA $114 vs target $55","recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":105.03},{"code":"ctr_below_floor","severity":"medium","entity_level":"adset","entity":"Parents - Lookalike 2%","evidence":"CTR 0.57% below 0.8% floor at CPM $34","recommendation":"Hook is not landing \u2014 test new opening frames / first line before touching budget.","action":{"label":"Queue hook variants","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":35.01}]}]},"alerts":[{"id":"act_4155-open-house---15km","account":"Brightline Tutoring","account_id":"act_4155","severity":"high","code":"delivery_stalled","title":"Delivery stopped","entity":"Open House - Nov / Open House - 15km","why":["No delivery for 7 days after $1,303 in the prior week \u2014 status still ACTIVE"],"recommendation":"Check payment method, ad review status and audience size before assuming it is a performance issue.","action":{"label":"Inspect account","api":"GET /{adset_id}/?fields=status,effective_status","auto_eligible":false},"at_stake_per_day":186.21,"secondary_flags":[]},{"id":"act_4155-parents---broad","account":"Brightline Tutoring","account_id":"act_4155","severity":"high","code":"over_target_cpa","title":"CPA above target","entity":"Back-to-School - Parents / Parents - Broad","why":["CPA $232 vs target $55","CTR 0.40% below 0.8% floor at CPM $39"],"recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":185.83,"secondary_flags":["ctr_below_floor"]},{"id":"act_4155-parents---lookalike-2%","account":"Brightline Tutoring","account_id":"act_4155","severity":"high","code":"over_target_cpa","title":"CPA above target","entity":"Back-to-School - Parents / Parents - Lookalike 2%","why":["CPA $119 vs target $55","CTR 0.58% below 0.8% floor at CPM $34"],"recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":149.2,"secondary_flags":["ctr_below_floor"]}],"insight":"Brightline Tutoring spent $5,863 in the last 7 days at ROAS 2.15 (-20% w/w) and CPA $163 vs a $55 target. 3 item(s) need attention; the most material is \u201cdelivery stopped\u201d on Open House - 15km. Read together with pacing: spend is ahead of plan, so efficiency fixes should not be judged in isolation from delivery."}],"alerts":[{"id":"act_1041-retargeting---180d","account":"Harbor Dental","account_id":"act_1041","severity":"high","code":"audience_fatigue","title":"Audience fatigue","entity":"Implants - Search Intent / Retargeting - 180d","why":["Frequency 4.41 (+0.90 w/w), CTR 1.56% (-8%)"],"recommendation":"Refresh creative and widen or exclude the most saturated segment.","action":{"label":"Queue 2 new creatives","api":"internal://creative-queue","auto_eligible":false},"at_stake_per_day":73.5,"secondary_flags":[]},{"id":"act_2087-cold---broad","account":"NorthPeak Outdoors","account_id":"act_2087","severity":"high","code":"zero_conversion_ad","title":"Zero conversions","entity":"Prospecting - Q4 / Cold - Broad / Video - Trail Test A","why":["CPA $73 vs $32 (+127%); CPM +2%, CVR 1.5% (-55%)","CPA $73 vs target $45","$4,317 spent in 7 days with 0 conversions (was 128 conv at $4,027)"],"recommendation":"Pause the ad and check tracking + landing page before relaunching.","action":{"label":"Pause ad","api":"POST /Video - Trail Test A/?status=PAUSED","auto_eligible":false},"at_stake_per_day":1244.6,"secondary_flags":["over_target_cpa","zero_conversion_ad"]},{"id":"act_3310-lapsed-donors-12m+","account":"Calder Foundation","account_id":"act_3310","severity":"high","code":"cpa_inflation","title":"CPA inflation week on week","entity":"Year-End Giving / Lapsed Donors 12m+","why":["CPA $94 vs $63 (+50%); CPM +6%, CVR 2.1% (-26%)","CPA $94 vs target $75"],"recommendation":"Check creative and audience overlap; shift budget to the best ad set while it is investigated.","action":{"label":"Reduce budget 20%","api":"POST /{adset_id}/?daily_budget=-20%","auto_eligible":false},"at_stake_per_day":430.08,"secondary_flags":["over_target_cpa"]},{"id":"act_4155-open-house---15km","account":"Brightline Tutoring","account_id":"act_4155","severity":"high","code":"delivery_stalled","title":"Delivery stopped","entity":"Open House - Nov / Open House - 15km","why":["No delivery for 7 days after $1,303 in the prior week \u2014 status still ACTIVE"],"recommendation":"Check payment method, ad review status and audience size before assuming it is a performance issue.","action":{"label":"Inspect account","api":"GET /{adset_id}/?fields=status,effective_status","auto_eligible":false},"at_stake_per_day":186.21,"secondary_flags":[]},{"id":"act_4155-parents---broad","account":"Brightline Tutoring","account_id":"act_4155","severity":"high","code":"over_target_cpa","title":"CPA above target","entity":"Back-to-School - Parents / Parents - Broad","why":["CPA $232 vs target $55","CTR 0.40% below 0.8% floor at CPM $39"],"recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":185.83,"secondary_flags":["ctr_below_floor"]},{"id":"act_4155-parents---lookalike-2%","account":"Brightline Tutoring","account_id":"act_4155","severity":"high","code":"over_target_cpa","title":"CPA above target","entity":"Back-to-School - Parents / Parents - Lookalike 2%","why":["CPA $119 vs target $55","CTR 0.58% below 0.8% floor at CPM $34"],"recommendation":"Rebuild the offer or creative; do not scale until CPA lands under target.","action":{"label":"Cap spend","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":149.2,"secondary_flags":["ctr_below_floor"]},{"id":"act_2087-pacing","account":"NorthPeak Outdoors","account_id":"act_2087","severity":"medium","code":"budget_pacing","title":"Pacing ahead of budget","entity":"NorthPeak Outdoors \u00b7 account","why":["7-day spend $15,597 vs $12,833 plan (+22%)","Projected month $66,844 vs $55,000 budget"],"recommendation":"Cap the top-spending ad set by ~15% or pull budget forward only where CPA is under target.","action":{"label":"Adjust daily budget","api":"POST /{adset_id}/?daily_budget=...","auto_eligible":false},"at_stake_per_day":394.8}]}</script>
+<script>
+(function(){
+  "use strict";
+
+  var DATA = JSON.parse(document.getElementById("toast-data").textContent);
+  var state = { account: "all", win: "7", sort: "spend", resolved: {}, audit: [] };
+
+  /* ---------- tabs ---------- */
+  var navBtns = Array.prototype.slice.call(document.querySelectorAll("#nav button"));
+  function showTab(id, push){
+    navBtns.forEach(function(b){ b.classList.toggle("active", b.dataset.tab === id); });
+    Array.prototype.slice.call(document.querySelectorAll("main > section")).forEach(function(s){
+      s.classList.toggle("active", s.id === id);
+    });
+    if (push !== false) { try { history.replaceState(null, "", "#" + id); } catch (e) {} }
+  }
+  navBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      showTab(btn.dataset.tab);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+  var initial = (location.hash || "").replace("#", "");
+  if (initial && document.getElementById(initial)) showTab(initial, false);
+
+  /* ---------- helpers ---------- */
+  function money(v, dp){
+    if (v === null || v === undefined || !isFinite(v)) return "—";
+    var n = dp ? Number(v).toFixed(dp) : Math.round(v).toLocaleString("en-US");
+    return "$" + (dp ? Number(n).toLocaleString("en-US", {minimumFractionDigits: dp, maximumFractionDigits: dp}) : n);
+  }
+  function pct(v, dp){
+    if (v === null || v === undefined || !isFinite(v)) return "—";
+    return (v * 100).toFixed(dp === undefined ? 2 : dp) + "%";
+  }
+  function delta(v, upIsGood){
+    if (v === null || v === undefined || !isFinite(v)) return '<span class="delta flat">—</span>';
+    if (Math.abs(v) < 0.005) return '<span class="delta flat">• 0%</span>';
+    var cls = upIsGood === undefined ? "flat" : ((v > 0) === upIsGood ? "good" : "bad");
+    return '<span class="delta ' + cls + '">' + (v > 0 ? "▲" : "▼") + " " + Math.abs(v * 100).toFixed(0) + "%</span>";
+  }
+  function fnum(v, dp){
+    if (v === null || v === undefined || !isFinite(v)) return "—";
+    return Number(v).toLocaleString("en-US", {minimumFractionDigits: dp || 0, maximumFractionDigits: dp || 0});
+  }
+  function fd(iso){
+    var d = new Date(iso + "T00:00:00");
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  }
+  function esc(s){
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  /* ---------- selection ---------- */
+  function account(){
+    if (state.account === "all") return null;
+    return DATA.accounts.filter(function(a){ return a.id === state.account; })[0] || null;
+  }
+  function kpiSet(){
+    var a = account();
+    if (a) return a.kpis[state.win];
+    var t = DATA.totals[state.win];
+    return { cur: t, prev: null, delta: t.delta || {} };
+  }
+  function rows(){
+    var a = account();
+    var out = [];
+    if (a) {
+      a.rows[state.win].forEach(function(r){ out.push(Object.assign({}, r, { account: a.name })); });
+    } else {
+      DATA.accounts.forEach(function(acc){
+        acc.rows[state.win].forEach(function(r){ out.push(Object.assign({}, r, { account: acc.name })); });
+      });
+    }
+    out.sort(function(x, y){
+      var a = x.kpis, b = y.kpis;
+      switch (state.sort) {
+        case "cpa": return (b.cpa === null ? -1 : b.cpa) - (a.cpa === null ? -1 : a.cpa);
+        case "roas": return (a.roas === null ? Infinity : a.roas) - (b.roas === null ? Infinity : b.roas);
+        case "freq": return b.frequency - a.frequency;
+        default: return b.spend - a.spend;
+      }
+    });
+    return out;
+  }
+  function alerts(){
+    if (state.account === "all") return DATA.alerts;
+    return DATA.alerts.filter(function(a){ return a.account_id === state.account; });
+  }
+  function series(){
+    var a = account();
+    if (a) return a.series;
+    var dates = DATA.accounts[0].series.map(function(s){ return s.date; });
+    return dates.map(function(d, i){
+      var spend = 0, value = 0, conv = 0;
+      DATA.accounts.forEach(function(acc){
+        var p = acc.series[i];
+        spend += p.spend; value += p.value; conv += p.conversions;
+      });
+      return {
+        date: d, spend: spend, value: value, conversions: conv,
+        roas: spend ? value / spend : null,
+        cpa: conv ? spend / conv : null
+      };
+    });
+  }
+
+  /* ---------- charts ---------- */
+  function lineChart(vals, color){
+    var W = 640, H = 160, P = 22;
+    var pts = [];
+    vals.forEach(function(v, i){ if (v !== null && v !== undefined && isFinite(v)) pts.push({ i: i, v: v }); });
+    if (pts.length < 2) return '<div class="empty">Not enough data for this window.</div>';
+    var vs = pts.map(function(p){ return p.v; });
+    var min = Math.min.apply(null, vs), max = Math.max.apply(null, vs);
+    var span = (max - min) || 1;
+    min -= span * 0.18; max += span * 0.18;
+    function X(i){ return P + (i / (vals.length - 1)) * (W - 2 * P); }
+    function Y(v){ return H - P - ((v - min) / (max - min)) * (H - 2 * P); }
+    var d = pts.map(function(p, k){ return (k ? "L" : "M") + X(p.i).toFixed(1) + " " + Y(p.v).toFixed(1); }).join(" ");
+    var area = d + " L" + X(pts[pts.length - 1].i).toFixed(1) + " " + (H - P) + " L" + X(pts[0].i).toFixed(1) + " " + (H - P) + " Z";
+    var dots = pts.map(function(p){
+      return '<circle cx="' + X(p.i).toFixed(1) + '" cy="' + Y(p.v).toFixed(1) + '" r="2.6" fill="' + color + '"><title>' +
+        fd(DATA.accounts[0].series[p.i].date) + ": " + (p.v).toFixed(2) + "</title></circle>";
+    }).join("");
+    return '<svg viewBox="0 0 ' + W + " " + H + '" width="100%" height="150" preserveAspectRatio="none">' +
+      '<defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0%" stop-color="' + color + '" stop-opacity=".28"/><stop offset="100%" stop-color="' + color + '" stop-opacity="0"/></linearGradient></defs>' +
+      '<line x1="' + P + '" y1="' + (H - P) + '" x2="' + (W - P) + '" y2="' + (H - P) + '" stroke="#242b38" stroke-width="1"/>' +
+      '<path d="' + area + '" fill="url(#lg)"/>' +
+      '<path d="' + d + '" fill="none" stroke="' + color + '" stroke-width="2" stroke-linejoin="round"/>' +
+      dots + "</svg>";
+  }
+
+  function barChart(vals, color){
+    var W = 640, H = 160, P = 22;
+    var max = Math.max.apply(null, vals.filter(function(v){ return isFinite(v); }));
+    var n = vals.length, gap = 6;
+    var bw = (W - 2 * P - gap * (n - 1)) / n;
+    var bars = "";
+    vals.forEach(function(v, i){
+      var h = max ? (v / max) * (H - 2 * P) : 0;
+      var x = P + i * (bw + gap), y = H - P - h;
+      bars += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + Math.max(h, 1).toFixed(1) +
+        '" rx="2" fill="' + color + '" opacity="' + (0.45 + 0.55 * (i / n)).toFixed(2) + '"><title>' +
+        fd(DATA.accounts[0].series[i].date) + ": " + money(v) + "</title></rect>";
+    });
+    return '<svg viewBox="0 0 ' + W + " " + H + '" width="100%" height="150" preserveAspectRatio="none">' +
+      '<line x1="' + P + '" y1="' + (H - P) + '" x2="' + (W - P) + '" y2="' + (H - P) + '" stroke="#242b38"/>' + bars + "</svg>";
+  }
+
+  /* ---------- render ---------- */
+  function chips(){
+    var wrap = document.getElementById("acct-chips");
+    var html = '<button data-acc="all" class="' + (state.account === "all" ? "on" : "") + '">All clients</button>';
+    DATA.accounts.forEach(function(a){
+      html += '<button data-acc="' + a.id + '" class="' + (state.account === a.id ? "on" : "") + '">' + esc(a.name) + "</button>";
+    });
+    wrap.innerHTML = html;
+    Array.prototype.slice.call(wrap.querySelectorAll("button")).forEach(function(b){
+      b.addEventListener("click", function(){ state.account = b.dataset.acc; render(); });
+    });
+
+    var win = document.getElementById("win-chips");
+    win.innerHTML = ["7", "14"].map(function(d){
+      return '<button data-win="' + d + '" class="' + (state.win === d ? "on" : "") + '">' + d + " days</button>";
+    }).join("");
+    Array.prototype.slice.call(win.querySelectorAll("button")).forEach(function(b){
+      b.addEventListener("click", function(){ state.win = b.dataset.win; render(); });
+    });
+  }
+
+  function kpiCards(){
+    var k = kpiSet(), cur = k.cur, dl = k.delta || {};
+    var items = [
+      { label: "Spend", value: money(cur.spend), d: dl.spend },
+      { label: "ROAS", value: cur.roas === null ? "—" : Number(cur.roas).toFixed(2) + "×", d: dl.roas, good: true },
+      { label: "CPA", value: money(cur.cpa), d: dl.cpa, good: false },
+      { label: "Conversions", value: fnum(cur.conversions), d: dl.conversions, good: true },
+      { label: "CTR", value: pct(cur.ctr, 2), d: dl.ctr, good: true },
+      { label: "Frequency", value: Number(cur.frequency).toFixed(2), d: dl.frequency, good: false }
+    ];
+    return '<div class="kpis">' + items.map(function(it){
+      return '<div class="kpi"><div class="kpi-label">' + it.label + '</div><div class="kpi-value">' + it.value +
+        '</div><div class="kpi-row">' + delta(it.d, it.good) + '<span class="tiny dim">vs prior ' + state.win + 'd</span></div></div>';
+    }).join("") + "</div>";
+  }
+
+  function alertCard(a){
+    var st = state.resolved[a.id];
+    var sevLabel = { high: "High", medium: "Medium", low: "Low" }[a.severity] || a.severity;
+    var why = a.why.map(function(w){ return "<li>" + esc(w) + "</li>"; }).join("");
+    var actionRow = '<div class="action-row"><span class="api">' + esc(a.action.label) + " → " + esc(a.action.api) + "</span>" +
+      (a.at_stake_per_day ? '<span class="tiny">~' + money(a.at_stake_per_day) + "/day implicated</span>" : "") +
+      (a.action.auto_eligible ? '<span class="chip">auto-eligible</span>' : '<span class="chip">needs approval</span>') + "</div>";
+    var foot = st
+      ? '<div class="resolved-note">' + (st === "approved" ? "Approved — execution simulated, no API call made." : "Dismissed — logged as not material.") + "</div>"
+      : '<div class="btn-row"><button data-approve="' + a.id + '">Approve action</button><button class="ghost" data-dismiss="' + a.id + '">Dismiss</button></div>';
+    return '<div class="alert sev-' + a.severity + (st ? " resolved" : "") + '">' +
+      '<div class="alert-top"><span class="pill ' + a.severity + '">' + sevLabel + "</span>" +
+      '<span class="acct">' + esc(a.account) + "</span></div>" +
+      "<h4>" + esc(a.title) + '</h4><div class="entity">' + esc(a.entity) + "</div>" +
+      '<ul class="why">' + why + "</ul>" +
+      '<div class="rec"><b>Recommended:</b> ' + esc(a.recommendation) + "</div>" + actionRow + foot + "</div>";
+  }
+
+  function renderAlerts(){
+    var list = alerts();
+    var active = list.filter(function(a){ return !state.resolved[a.id]; });
+    var stake = active.reduce(function(s, a){ return s + (a.at_stake_per_day || 0); }, 0);
+    var summary = '<div class="insight"><b>' + active.length + " open alert" + (active.length === 1 ? "" : "s") +
+      "</b> · roughly <b>" + money(stake) + "/day</b> of spend is implicated. " +
+      (active.length ? "Highest severity first; nothing executes until you approve it." : "Everything is inside its thresholds for this selection.") + "</div>";
+    return summary + (list.length ? list.map(alertCard).join("") : '<div class="empty">No alerts for this account.</div>');
+  }
+
+  function renderAudit(){
+    if (!state.audit.length) {
+      return '<div class="empty">No actions taken. The queue proposes; a human approves; this log is the evidence.</div>';
+    }
+    return state.audit.map(function(e){
+      return '<div class="audit-item"><div class="t">' + e.time + "</div>" +
+        '<div class="lab">' + esc(e.label) + "</div>" + esc(e.account) + " · " + esc(e.title) +
+        '<div class="tiny dim mono" style="margin-top:3px">' + esc(e.api) + "</div></div>";
+    }).join("");
+  }
+
+  function flagBadges(flags){
+    if (!flags || !flags.length) return '<span class="tiny dim">—</span>';
+    var short = {
+      audience_fatigue: "fatigue", cpa_inflation: "cpa ↑", over_target_cpa: "over target",
+      below_breakeven: "below breakeven", ctr_below_floor: "ctr floor",
+      zero_conversion_ad: "zero conv", delivery_stalled: "stalled"
+    };
+    return flags.map(function(f){
+      return '<span class="pill ' + f.severity + '" title="' + esc(f.evidence) + '" style="margin-right:3px">' +
+        esc(short[f.code] || f.code) + "</span>";
+    }).join("");
+  }
+
+  function renderTable(){
+    var list = rows();
+    var showAccount = state.account === "all";
+    var head = '<thead><tr><th>Ad set</th>' + (showAccount ? "<th>Client</th>" : "") +
+      '<th style="text-align:right">Spend</th><th style="text-align:right">ROAS</th>' +
+      '<th style="text-align:right">CPA</th><th style="text-align:right">CTR</th>' +
+      '<th style="text-align:right">CPM</th><th style="text-align:right">Freq</th>' +
+      '<th style="text-align:right">Conv</th><th>Flags</th></tr></thead>';
+    var body = list.map(function(r){
+      var k = r.kpis, d = r.delta;
+      return "<tr><td><b>" + esc(r.adset) + '</b><span class="tbl-sub">' + esc(r.campaign) + "</span></td>" +
+        (showAccount ? '<td class="muted">' + esc(r.account) + "</td>" : "") +
+        '<td class="num">' + money(k.spend) + '<span class="tbl-sub">' + delta(d.spend) + "</span></td>" +
+        '<td class="num">' + (k.roas === null ? "—" : k.roas.toFixed(2)) + '<span class="tbl-sub">' + delta(d.roas, true) + "</span></td>" +
+        '<td class="num">' + money(k.cpa) + '<span class="tbl-sub">' + delta(d.cpa, false) + "</span></td>" +
+        '<td class="num">' + pct(k.ctr, 2) + '<span class="tbl-sub">' + delta(d.ctr, true) + "</span></td>" +
+        '<td class="num">' + money(k.cpm, 2) + '<span class="tbl-sub">' + delta(d.cpm, false) + "</span></td>" +
+        '<td class="num">' + k.frequency.toFixed(2) + '<span class="tbl-sub">' + delta(d.frequency, false) + "</span></td>" +
+        '<td class="num">' + fnum(k.conversions) + "</td>" +
+        "<td>" + flagBadges(r.flags) + "</td></tr>";
+    }).join("");
+    return '<div class="table-wrap"><table>' + head + "<tbody>" + body + "</tbody></table></div>";
+  }
+
+  function render(){
+    chips();
+    var k = kpiSet();
+    var s = series();
+    var a = account();
+    var insight = a ? a.insight :
+      "Portfolio: " + money(k.cur.spend) + " spend, ROAS " + (k.cur.roas ? k.cur.roas.toFixed(2) : "—") +
+      " and CPA " + money(k.cur.cpa) + " across four accounts. " + alerts().length +
+      " alerts need a decision; the sharpest is “" + (alerts()[0] ? alerts()[0].title : "none") + "”.";
+
+    var body = kpiCards() +
+      '<div class="insight">' + esc(insight) + "</div>" +
+      '<div class="grid g2" style="margin-bottom:14px">' +
+        '<div class="card chart-card"><div class="mini">ROAS — last 14 days</div>' + lineChart(s.map(function(p){ return p.roas; }), "#f2a03d") +
+        '<div class="chart-legend"><span>' + fd(s[0].date) + "</span><span>" + fd(s[s.length - 1].date) + "</span></div></div>" +
+        '<div class="card chart-card"><div class="mini">Daily spend</div>' + barChart(s.map(function(p){ return p.spend; }), "#49c99b") +
+        '<div class="chart-legend"><span>' + fd(s[0].date) + "</span><span>" + fd(s[s.length - 1].date) + "</span></div></div>" +
+      "</div>" +
+      '<div class="toast-grid">' +
+        "<div><div class=\"mini\">Alert queue · " + alerts().length + "</div>" + renderAlerts() + "</div>" +
+        "<div><div class=\"mini\">Action log</div><div class=\"audit\" id=\"audit\">" + renderAudit() + "</div>" +
+        '<div class="guard"><div class="mini">Guardrails in production</div><ul>' +
+          "<li>Dry-run by default; live execution per client, opt-in.</li>" +
+          "<li>Cap: max 4 changes per ad set per 24h, ≤20% budget delta.</li>" +
+          "<li>Allowlist of action types — no billing, no new audiences, no pixel changes.</li>" +
+          "<li>Before/after snapshot stored for every action; one-click rollback.</li>" +
+          "<li>Kill switch that freezes the queue and alerts a human.</li>" +
+        "</ul></div></div>" +
+      "</div>" +
+      '<div class="mini" style="margin-top:22px">Ad sets · ' + state.win + "-day window · flags evaluated on the trailing 7 days</div>" +
+      renderTable();
+
+    var host = document.getElementById("toast-body");
+    host.innerHTML = body;
+
+    document.getElementById("ps-rows").textContent = DATA.source_rows;
+    document.getElementById("ps-alerts").textContent = DATA.alerts.length;
+    document.getElementById("ps-end").textContent = DATA.data_end;
+
+    Array.prototype.slice.call(host.querySelectorAll("[data-approve]")).forEach(function(b){
+      b.addEventListener("click", function(){
+        var al = DATA.alerts.filter(function(x){ return x.id === b.dataset.approve; })[0];
+        state.resolved[al.id] = "approved";
+        state.audit.unshift({
+          time: new Date().toLocaleTimeString("en-GB"),
+          label: al.action.label,
+          account: al.account,
+          title: al.title,
+          api: al.action.api + "  (simulated)"
+        });
+        render();
+      });
+    });
+    Array.prototype.slice.call(host.querySelectorAll("[data-dismiss]")).forEach(function(b){
+      b.addEventListener("click", function(){
+        var al = DATA.alerts.filter(function(x){ return x.id === b.dataset.dismiss; })[0];
+        state.resolved[al.id] = "dismissed";
+        state.audit.unshift({
+          time: new Date().toLocaleTimeString("en-GB"),
+          label: "Dismissed",
+          account: al.account,
+          title: al.title,
+          api: "logged as not material"
+        });
+        render();
+      });
+    });
+  }
+
+  document.getElementById("sort").addEventListener("change", function(e){
+    state.sort = e.target.value;
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

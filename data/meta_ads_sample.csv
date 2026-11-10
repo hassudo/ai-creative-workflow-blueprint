@@ -1,0 +1,449 @@
+date,account_id,account_name,campaign_name,adset_name,ad_name,objective,spend,impressions,reach,clicks,conversions,conversion_value
+2026-10-13,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,339.20,13697,13697,252,14,1867.99
+2026-10-14,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,351.09,13249,13246,265,15,1906.69
+2026-10-15,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,334.61,13465,13452,244,15,1897.47
+2026-10-16,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,311.05,12281,12257,236,14,1842.09
+2026-10-17,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,326.52,12374,12334,242,13,1704.76
+2026-10-18,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,367.68,13765,13699,251,14,1819.00
+2026-10-19,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,377.00,14611,14514,256,14,1831.02
+2026-10-20,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,366.58,13811,13691,267,16,2137.38
+2026-10-21,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,341.23,12385,12248,224,13,1740.96
+2026-10-22,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,355.89,13350,13168,258,15,2003.37
+2026-10-23,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,342.06,13581,13357,239,14,1760.41
+2026-10-24,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,296.29,11521,11296,198,11,1454.29
+2026-10-25,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,327.66,12552,12267,224,12,1617.20
+2026-10-26,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,300.96,10882,10597,201,12,1559.12
+2026-10-27,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,293.18,10799,10478,185,11,1377.93
+2026-10-28,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,344.34,12777,12348,231,14,1810.77
+2026-10-29,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,336.74,12312,11850,212,11,1467.50
+2026-10-30,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,306.43,11770,11279,201,13,1640.01
+2026-10-31,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,346.70,13233,12625,240,14,1773.98
+2026-11-01,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,354.62,13321,12649,228,13,1634.23
+2026-11-02,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,336.85,12889,12179,229,14,1846.69
+2026-11-03,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,330.98,12703,11943,238,14,1787.88
+2026-11-04,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,314.01,12251,11458,202,12,1546.98
+2026-11-05,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,365.12,13687,12733,223,13,1632.46
+2026-11-06,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,380.77,14101,13046,260,16,2065.33
+2026-11-07,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,312.32,11333,10425,200,12,1500.38
+2026-11-08,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,328.16,11984,10960,195,11,1427.73
+2026-11-09,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Before/After A,OUTCOME_LEADS,337.66,11945,10860,215,12,1525.41
+2026-10-13,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,220.03,8744,8744,176,11,1462.05
+2026-10-14,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,214.48,8124,8122,156,9,1139.61
+2026-10-15,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,238.51,9111,9102,179,11,1394.89
+2026-10-16,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,206.18,8036,8021,141,9,1176.78
+2026-10-17,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,248.03,9179,9150,167,9,1191.42
+2026-10-18,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,248.45,9080,9036,159,9,1229.47
+2026-10-19,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,210.44,7819,7767,151,8,1084.35
+2026-10-20,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,227.37,8612,8537,154,10,1266.36
+2026-10-21,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,222.38,8704,8607,161,10,1291.23
+2026-10-22,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,209.29,8096,7986,159,10,1252.50
+2026-10-23,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,216.36,8186,8051,142,8,1031.93
+2026-10-24,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,208.66,7828,7675,137,8,996.12
+2026-10-25,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,194.42,7252,7087,127,8,1036.56
+2026-10-26,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,225.58,8894,8662,155,9,1215.40
+2026-10-27,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,197.25,7716,7487,147,9,1134.87
+2026-10-28,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,207.94,7607,7352,142,8,1019.61
+2026-10-29,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,193.15,7307,7033,129,7,972.21
+2026-10-30,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,221.83,8181,7840,156,8,1089.92
+2026-10-31,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,210.77,8025,7656,150,8,1076.32
+2026-11-01,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,204.78,7700,7312,135,7,972.00
+2026-11-02,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,210.74,7553,7137,132,8,1054.45
+2026-11-03,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,227.45,8883,8352,167,10,1324.00
+2026-11-04,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,249.38,8909,8333,163,9,1146.82
+2026-11-05,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,229.32,8781,8169,151,8,1034.65
+2026-11-06,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,225.34,7982,7385,134,8,1046.96
+2026-11-07,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,228.68,8547,7863,157,10,1270.38
+2026-11-08,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,232.03,8410,7691,137,8,982.92
+2026-11-09,act_1041,Harbor Dental,Implants - Search Intent,Implants - Broad,Static - Offer 20% B,OUTCOME_LEADS,248.51,9118,8289,157,9,1214.09
+2026-10-13,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,223.30,12302,11184,258,30,3930.43
+2026-10-14,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,231.83,12258,11114,240,25,3220.39
+2026-10-15,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,257.16,13917,12536,275,28,3638.56
+2026-10-16,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,275.00,15469,13799,318,35,4596.16
+2026-10-17,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,252.62,13675,12045,275,32,4181.76
+2026-10-18,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,242.02,12875,11168,246,26,3388.09
+2026-10-19,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,265.25,14646,12482,280,31,4087.83
+2026-10-20,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,232.71,12591,10520,261,30,3958.09
+2026-10-21,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,230.05,12706,10388,235,27,3517.05
+2026-10-22,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,266.78,13730,10964,255,25,3304.66
+2026-10-23,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,260.25,13567,10566,257,30,3852.56
+2026-10-24,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,247.55,13790,10459,265,27,3510.30
+2026-10-25,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,244.58,12357,9116,213,21,2713.96
+2026-10-26,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,215.94,11281,8086,196,21,2721.39
+2026-10-27,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,243.13,13104,9117,237,24,3073.58
+2026-10-28,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,232.31,11628,7847,213,21,2670.03
+2026-10-29,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,230.39,12223,7994,196,21,2770.66
+2026-10-30,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,242.70,12842,8136,226,24,3058.15
+2026-10-31,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,235.92,12761,7828,202,22,2876.83
+2026-11-01,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,262.76,13400,7955,232,24,3135.23
+2026-11-02,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,229.67,12171,6991,193,21,2745.48
+2026-11-03,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,265.63,13027,7239,221,21,2768.10
+2026-11-04,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,241.18,12711,6830,210,23,2943.17
+2026-11-05,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,251.32,12516,6504,186,20,2624.40
+2026-11-06,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,275.93,13222,6645,212,23,2958.43
+2026-11-07,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,232.56,11359,5520,168,18,2352.24
+2026-11-08,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,271.00,13022,6120,203,19,2512.24
+2026-11-09,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Testimonial,OUTCOME_LEADS,267.58,13814,6279,214,23,2927.10
+2026-10-13,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,99.17,5340,4855,112,12,1538.90
+2026-10-14,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,112.96,6423,5824,124,13,1675.64
+2026-10-15,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,104.44,5549,4998,121,13,1654.49
+2026-10-16,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,112.42,6226,5553,135,15,1920.00
+2026-10-17,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,119.71,6796,5986,145,15,1929.26
+2026-10-18,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,120.44,6703,5814,126,13,1742.83
+2026-10-19,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,114.93,6337,5401,126,14,1766.15
+2026-10-20,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,106.55,5697,4760,107,12,1539.96
+2026-10-21,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,97.05,4994,4083,96,11,1385.70
+2026-10-22,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,111.38,5850,4672,108,11,1383.27
+2026-10-23,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,107.99,5844,4551,106,12,1554.57
+2026-10-24,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,107.45,5807,4404,104,11,1405.56
+2026-10-25,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,99.52,5358,3953,92,10,1244.99
+2026-10-26,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,109.29,5640,4042,107,11,1487.32
+2026-10-27,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,95.88,4990,3472,82,8,1073.17
+2026-10-28,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,98.39,5084,3431,91,9,1219.86
+2026-10-29,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,99.11,5292,3461,91,10,1313.07
+2026-10-30,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,107.23,5728,3629,92,9,1234.78
+2026-10-31,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,105.32,5508,3379,97,10,1348.50
+2026-11-01,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,107.79,5679,3371,90,8,1095.39
+2026-11-02,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,100.48,5139,2952,88,8,1076.20
+2026-11-03,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,105.64,5299,2944,82,9,1115.02
+2026-11-04,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,108.69,5645,3034,92,8,1095.20
+2026-11-05,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,115.27,5657,2940,84,8,1078.53
+2026-11-06,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,103.07,4948,2486,76,7,914.66
+2026-11-07,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,104.61,5054,2456,76,8,1042.29
+2026-11-08,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,113.19,5375,2526,81,9,1136.26
+2026-11-09,act_1041,Harbor Dental,Implants - Search Intent,Retargeting - 180d,Retarget - Booking CTA,OUTCOME_LEADS,116.93,5736,2607,87,9,1119.38
+2026-10-13,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,645.00,45852,44953,678,25,2351.91
+2026-10-14,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,611.48,44705,43819,602,22,2047.22
+2026-10-15,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,656.32,46677,45728,661,22,2101.25
+2026-10-16,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,576.68,41954,41070,564,19,1802.85
+2026-10-17,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,639.16,47158,46117,628,23,2144.43
+2026-10-18,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,661.45,49126,47982,669,23,2220.10
+2026-10-19,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,622.59,45511,44386,619,23,2183.01
+2026-10-20,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,638.95,44419,43249,639,23,2198.68
+2026-10-21,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,606.23,45152,43881,604,22,2069.96
+2026-10-22,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,655.41,44341,43005,597,21,2040.18
+2026-10-23,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,608.01,42513,41140,555,18,1719.59
+2026-10-24,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,585.42,43353,41851,574,20,1928.90
+2026-10-25,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,573.65,41837,40283,562,18,1705.62
+2026-10-26,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,592.88,43818,42074,581,20,1907.42
+2026-10-27,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,520.92,36123,34583,460,16,1479.63
+2026-10-28,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,523.27,37214,35517,478,16,1496.24
+2026-10-29,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,607.93,43187,41084,596,21,2038.83
+2026-10-30,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,554.41,40563,38456,503,17,1631.28
+2026-10-31,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,650.22,46227,43670,626,22,2112.38
+2026-11-01,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,618.58,42198,39716,593,19,1798.20
+2026-11-02,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,551.55,39928,37434,498,17,1644.31
+2026-11-03,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,627.19,45048,42066,608,0,0.00
+2026-11-04,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,585.33,40378,37550,547,0,0.00
+2026-11-05,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,672.83,44780,41465,552,0,0.00
+2026-11-06,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,611.18,41781,38518,578,0,0.00
+2026-11-07,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,661.87,48035,44083,639,0,0.00
+2026-11-08,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,580.81,39252,35855,532,0,0.00
+2026-11-09,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Video - Trail Test A,OUTCOME_SALES,577.48,38199,34726,511,0,0.00
+2026-10-13,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,487.91,35308,34615,495,17,1597.93
+2026-10-14,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,538.00,37187,36451,490,19,1762.61
+2026-10-15,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,523.71,36137,35403,518,18,1694.46
+2026-10-16,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,539.48,36698,35925,493,18,1719.92
+2026-10-17,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,522.74,37235,36413,510,18,1754.79
+2026-10-18,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,495.65,34012,33220,491,16,1496.61
+2026-10-19,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,557.67,40610,39606,556,20,1863.36
+2026-10-20,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,501.69,37317,36334,537,17,1660.65
+2026-10-21,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,478.91,32926,31999,440,16,1539.91
+2026-10-22,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,521.00,37689,36553,478,18,1690.15
+2026-10-23,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,452.07,31248,30238,424,15,1447.41
+2026-10-24,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,503.70,35033,33819,474,17,1624.91
+2026-10-25,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,439.56,31871,30687,442,15,1386.52
+2026-10-26,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,481.23,33975,32622,459,15,1470.45
+2026-10-27,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,493.88,35335,33828,488,16,1514.21
+2026-10-28,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,447.06,32648,31159,418,13,1258.58
+2026-10-29,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,476.09,32559,30973,415,13,1270.87
+2026-10-30,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,475.75,32620,30925,463,16,1496.35
+2026-10-31,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,462.65,33747,31880,428,14,1308.50
+2026-11-01,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,459.71,33800,31811,449,15,1380.92
+2026-11-02,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,546.50,37984,35612,514,16,1535.32
+2026-11-03,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,544.01,38006,35490,525,18,1700.17
+2026-11-04,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,509.85,35762,33256,447,14,1311.60
+2026-11-05,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,563.09,39306,36397,536,18,1675.52
+2026-11-06,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,475.33,32648,30098,398,12,1184.79
+2026-11-07,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,525.73,37268,34202,517,16,1525.41
+2026-11-08,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,543.62,37343,34111,502,16,1510.84
+2026-11-09,act_2087,NorthPeak Outdoors,Prospecting - Q4,Cold - Broad,Static - Lifestyle B,OUTCOME_SALES,513.54,35790,32536,457,16,1538.07
+2026-10-13,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,713.70,42816,42816,522,17,1519.56
+2026-10-14,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,692.01,38919,38913,447,13,1206.55
+2026-10-15,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,691.03,41999,41976,479,14,1257.44
+2026-10-16,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,609.45,35909,35868,434,13,1185.02
+2026-10-17,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,644.64,36987,36916,452,14,1271.99
+2026-10-18,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,708.05,39735,39621,491,15,1419.88
+2026-10-19,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,702.30,39332,39175,461,14,1313.00
+2026-10-20,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,695.06,38978,38773,482,14,1254.20
+2026-10-21,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,622.70,37019,36772,452,14,1288.38
+2026-10-22,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,629.87,38116,37802,460,15,1341.21
+2026-10-23,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,704.57,40988,40581,481,14,1248.15
+2026-10-24,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,578.51,33849,33450,386,11,1035.35
+2026-10-25,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,576.98,32015,31575,392,12,1111.61
+2026-10-26,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,677.83,37435,36842,447,13,1197.78
+2026-10-27,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,561.29,31699,31126,367,11,1053.01
+2026-10-28,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,669.17,39991,39175,469,15,1340.85
+2026-10-29,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,619.69,37342,36489,423,12,1142.39
+2026-10-30,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,648.03,36120,35202,407,13,1171.36
+2026-10-31,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,608.19,33579,32635,404,12,1131.08
+2026-11-01,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,639.18,37517,36359,421,14,1264.25
+2026-11-02,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,642.89,36941,35693,453,14,1287.93
+2026-11-03,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,670.99,38908,37477,426,12,1146.88
+2026-11-04,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,708.17,40159,38559,475,13,1240.71
+2026-11-05,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,686.17,37743,36119,426,13,1215.55
+2026-11-06,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,630.64,34500,32903,398,11,1043.10
+2026-11-07,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,635.20,36171,34375,413,11,1051.04
+2026-11-08,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,744.74,40890,38719,460,13,1174.10
+2026-11-09,act_2087,NorthPeak Outdoors,Prospecting - Q4,Interest - Hiking,Static - Gear Grid C,OUTCOME_SALES,715.90,40892,38577,475,14,1303.28
+2026-10-13,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,381.87,16796,11997,502,43,3877.85
+2026-10-14,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,410.51,18865,13470,559,50,4526.29
+2026-10-15,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,443.29,19413,13848,525,50,4464.30
+2026-10-16,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,409.39,17795,12676,497,47,4240.11
+2026-10-17,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,401.01,18548,13188,523,51,4592.15
+2026-10-18,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,419.11,19672,13955,550,48,4304.20
+2026-10-19,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,423.03,19061,13486,526,45,4093.73
+2026-10-20,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,389.59,17276,12187,484,41,3699.72
+2026-10-21,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,433.27,20514,14422,587,54,4886.82
+2026-10-22,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,429.93,19637,13754,555,52,4706.85
+2026-10-23,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,436.62,19710,13750,508,45,4074.40
+2026-10-24,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,399.16,17355,12055,503,44,3981.83
+2026-10-25,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,388.68,17587,12159,499,44,3921.45
+2026-10-26,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,394.48,18396,12655,503,48,4354.57
+2026-10-27,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,368.10,16247,11118,455,43,3856.44
+2026-10-28,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,406.95,17660,12018,475,41,3661.32
+2026-10-29,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,398.69,17457,11812,502,41,3660.95
+2026-10-30,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,352.37,15613,10500,451,43,3907.32
+2026-10-31,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,410.11,18518,12375,476,43,3872.02
+2026-11-01,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,426.51,19226,12764,537,51,4570.31
+2026-11-02,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,366.73,15954,10520,421,36,3258.63
+2026-11-03,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,380.41,16973,11114,465,43,3869.99
+2026-11-04,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,387.17,18078,11752,515,46,4158.05
+2026-11-05,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,396.47,17017,10980,437,38,3427.01
+2026-11-06,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,399.21,18276,11702,460,42,3822.54
+2026-11-07,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,453.22,19874,12625,510,44,3975.62
+2026-11-08,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,404.34,17875,11264,491,42,3806.38
+2026-11-09,act_2087,NorthPeak Outdoors,Retargeting - 14d,Cart Abandoners,Dynamic - Cart DPA,OUTCOME_SALES,392.47,16906,10566,435,37,3349.11
+2026-10-13,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,373.74,18277,16616,295,13,1616.56
+2026-10-14,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,418.48,20121,18276,341,15,1852.75
+2026-10-15,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,368.85,17070,15473,276,12,1489.51
+2026-10-16,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,355.23,16198,14636,254,11,1372.54
+2026-10-17,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,376.21,16655,14987,263,11,1260.80
+2026-10-18,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,404.49,18030,16144,286,12,1426.40
+2026-10-19,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,405.01,17489,15569,273,11,1372.71
+2026-10-20,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,400.89,18058,15969,273,11,1263.43
+2026-10-21,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,402.87,18371,16126,270,10,1253.49
+2026-10-22,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,354.81,15946,13885,241,9,1130.22
+2026-10-23,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,375.73,15463,13347,242,8,970.33
+2026-10-24,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,391.45,16641,14229,257,9,1096.42
+2026-10-25,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,350.81,15330,12977,240,7,889.98
+2026-10-26,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,392.19,15751,13193,237,8,990.38
+2026-10-27,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,389.94,15594,12916,222,7,868.91
+2026-10-28,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,321.75,13085,10712,187,6,694.99
+2026-10-29,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,370.45,14852,12012,222,7,833.30
+2026-10-30,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,333.24,13712,10951,182,5,652.36
+2026-10-31,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,370.90,14131,11138,191,5,570.80
+2026-11-01,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,396.22,14966,11638,203,5,623.94
+2026-11-02,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,350.90,13087,10037,177,4,528.82
+2026-11-03,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,352.92,13118,9918,171,4,489.22
+2026-11-04,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,401.88,15013,11186,218,5,592.31
+2026-11-05,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,411.00,16146,11852,216,4,529.36
+2026-11-06,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,392.79,14904,10775,213,4,491.54
+2026-11-07,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,383.15,14360,10223,204,4,519.77
+2026-11-08,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,359.81,13051,9146,174,4,430.09
+2026-11-09,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Story - Matching Gift,OUTCOME_DONATIONS,376.35,13927,9605,175,3,351.88
+2026-10-13,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,401.10,19187,17443,314,14,1738.78
+2026-10-14,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,388.35,19209,17448,318,13,1599.28
+2026-10-15,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,357.38,16541,14993,245,11,1326.48
+2026-10-16,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,367.57,17434,15753,288,12,1404.36
+2026-10-17,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,365.31,16014,14411,232,10,1215.27
+2026-10-18,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,365.75,17134,15342,256,10,1155.71
+2026-10-19,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,405.16,18988,16903,272,11,1338.65
+2026-10-20,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,369.08,16599,14679,242,8,1013.14
+2026-10-21,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,403.59,17604,15453,276,10,1219.34
+2026-10-22,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,400.52,17316,15078,246,9,1064.21
+2026-10-23,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,406.69,18263,15764,284,11,1269.57
+2026-10-24,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,369.16,15730,13450,248,8,933.29
+2026-10-25,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,360.98,15318,12967,231,8,914.56
+2026-10-26,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,388.11,16868,14129,232,8,908.38
+2026-10-27,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,325.63,13728,11371,203,6,761.19
+2026-10-28,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,343.94,13377,10951,193,6,690.61
+2026-10-29,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,365.66,15401,12456,226,7,837.74
+2026-10-30,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,372.47,14528,11602,212,6,677.30
+2026-10-31,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,362.85,14800,11666,204,5,654.44
+2026-11-01,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,365.87,14992,11659,207,6,666.15
+2026-11-02,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,368.64,14879,11411,219,5,604.55
+2026-11-03,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,409.31,16474,12455,214,5,642.43
+2026-11-04,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,412.86,15710,11705,217,5,605.80
+2026-11-05,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,378.65,14925,10956,198,4,538.38
+2026-11-06,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,413.34,14987,10836,208,5,567.43
+2026-11-07,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,401.23,15178,10805,205,4,465.61
+2026-11-08,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,403.41,15327,10741,192,4,464.02
+2026-11-09,act_3310,Calder Foundation,Year-End Giving,Lapsed Donors 12m+,Static - 2x Match,OUTCOME_DONATIONS,377.04,13457,9281,178,3,406.64
+2026-10-13,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,641.42,32229,32229,438,13,1607.79
+2026-10-14,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,626.91,34597,34588,476,15,1811.49
+2026-10-15,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,589.29,31968,31939,425,12,1474.69
+2026-10-16,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,604.70,33368,33305,453,14,1643.69
+2026-10-17,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,616.35,33495,33388,440,12,1440.33
+2026-10-18,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,660.98,35611,35440,453,13,1571.18
+2026-10-19,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,611.71,31288,31081,417,13,1505.53
+2026-10-20,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,571.46,31242,30970,381,12,1384.92
+2026-10-21,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,637.39,34027,33650,444,13,1576.57
+2026-10-22,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,600.05,31994,31558,422,12,1395.27
+2026-10-23,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,589.10,31344,30828,408,12,1444.88
+2026-10-24,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,607.79,33108,32463,414,12,1491.32
+2026-10-25,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,522.90,27709,27080,336,9,1111.97
+2026-10-26,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,545.88,28817,28064,339,10,1249.10
+2026-10-27,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,533.57,27988,27155,363,11,1278.25
+2026-10-28,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,608.26,30553,29528,361,11,1353.28
+2026-10-29,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,520.52,28278,27217,375,12,1405.60
+2026-10-30,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,587.26,30114,28859,388,11,1340.57
+2026-10-31,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,541.11,29326,27978,357,11,1318.83
+2026-11-01,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,609.46,30404,28870,401,11,1298.35
+2026-11-02,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,646.71,34175,32293,430,13,1507.94
+2026-11-03,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,601.34,31526,29641,382,11,1292.16
+2026-11-04,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,580.53,29794,27867,348,10,1215.81
+2026-11-05,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,678.13,35334,32871,450,14,1653.67
+2026-11-06,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,669.49,35251,32613,412,11,1353.66
+2026-11-07,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,642.23,32054,29487,402,11,1312.99
+2026-11-08,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,659.99,33781,30894,429,13,1552.62
+2026-11-09,act_3310,Calder Foundation,Year-End Giving,Lookalike - Donors 1%,Static - Impact Grid,OUTCOME_DONATIONS,613.34,30066,27332,371,11,1312.40
+2026-10-13,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,307.47,18542,17659,566,42,5093.61
+2026-10-14,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,278.44,17491,16653,509,39,4685.71
+2026-10-15,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,281.59,17560,16707,511,40,4851.67
+2026-10-16,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,284.67,17183,16329,482,41,4916.59
+2026-10-17,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,336.76,20746,19686,618,49,5870.53
+2026-10-18,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,318.41,19265,18247,604,48,5717.14
+2026-10-19,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,333.47,20439,19319,591,47,5613.11
+2026-10-20,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,289.84,18847,17771,527,45,5381.56
+2026-10-21,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,298.34,18147,17065,537,40,4805.49
+2026-10-22,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,288.23,18007,16882,527,42,5026.27
+2026-10-23,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,278.35,17491,16346,499,39,4662.82
+2026-10-24,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,284.56,17470,16269,534,43,5200.14
+2026-10-25,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,264.83,17099,15864,514,39,4680.37
+2026-10-26,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,299.82,18274,16886,565,48,5709.34
+2026-10-27,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,275.78,16919,15568,470,36,4318.07
+2026-10-28,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,311.79,18898,17311,543,43,5212.11
+2026-10-29,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,311.58,19619,17888,561,46,5570.36
+2026-10-30,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,307.36,18654,16925,567,46,5569.57
+2026-10-31,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,303.99,18700,16880,553,43,5134.43
+2026-11-01,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,289.47,18089,16242,500,37,4458.27
+2026-11-02,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,329.60,20327,18151,565,41,4955.26
+2026-11-03,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,281.10,16724,14848,455,37,4476.83
+2026-11-04,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,331.74,19647,17341,529,40,4807.04
+2026-11-05,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,330.31,21076,18489,595,44,5226.79
+2026-11-06,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,335.77,20075,17501,600,44,5272.26
+2026-11-07,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,310.75,19240,16666,564,42,5015.93
+2026-11-08,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,309.43,19391,16686,573,44,5292.60
+2026-11-09,act_3310,Calder Foundation,Year-End Giving,Warm - Email List,Static - Donor Letter,OUTCOME_DONATIONS,311.94,19485,16654,579,45,5364.62
+2026-10-13,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,264.09,7043,6707,31,2,546.75
+2026-10-14,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,249.50,6702,6381,28,1,443.65
+2026-10-15,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,278.72,7088,6745,31,1,461.03
+2026-10-16,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,244.81,6325,6012,28,1,447.15
+2026-10-17,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,238.77,6038,5733,26,1,403.77
+2026-10-18,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,273.54,7312,6932,32,1,478.19
+2026-10-19,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,255.82,6388,6045,25,1,400.78
+2026-10-20,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,249.33,6817,6438,26,1,419.62
+2026-10-21,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,240.66,5964,5620,24,1,350.77
+2026-10-22,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,272.00,6832,6422,29,1,478.64
+2026-10-23,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,228.60,6057,5678,26,1,426.27
+2026-10-24,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,225.08,5711,5338,23,1,334.46
+2026-10-25,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,219.12,5807,5411,25,1,395.82
+2026-10-26,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,247.51,6373,5918,25,1,372.79
+2026-10-27,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,226.00,6103,5647,25,1,407.25
+2026-10-28,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,233.21,6247,5759,27,1,429.02
+2026-10-29,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,213.49,5480,5032,22,1,314.68
+2026-10-30,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,235.25,5970,5460,23,1,359.54
+2026-10-31,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,249.77,6679,6082,29,1,415.31
+2026-11-01,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,246.88,6314,5724,27,1,429.21
+2026-11-02,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,244.11,6258,5646,26,1,435.08
+2026-11-03,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,240.85,6459,5800,27,1,408.80
+2026-11-04,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,268.44,6755,6035,28,1,455.75
+2026-11-05,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,250.06,6667,5927,27,1,440.55
+2026-11-06,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,242.92,6005,5310,24,1,383.09
+2026-11-07,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,266.44,6557,5767,25,1,398.80
+2026-11-08,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,255.97,6623,5792,25,1,360.68
+2026-11-09,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Tutor Match,OUTCOME_LEADS,232.20,5631,4897,23,1,376.32
+2026-10-13,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,204.24,5511,5248,24,1,362.13
+2026-10-14,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,199.83,5107,4863,23,1,348.71
+2026-10-15,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,192.92,5130,4881,23,1,376.90
+2026-10-16,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,227.48,6028,5731,27,1,427.36
+2026-10-17,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,212.12,5323,5054,22,1,373.12
+2026-10-18,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,222.27,6061,5747,26,1,429.89
+2026-10-19,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,213.89,5681,5376,22,1,362.34
+2026-10-20,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,202.19,5213,4923,21,1,350.19
+2026-10-21,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,201.71,5498,5181,24,1,368.25
+2026-10-22,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,225.30,5986,5627,26,1,450.09
+2026-10-23,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,184.51,4720,4424,19,1,317.12
+2026-10-24,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,205.62,5094,4761,20,1,319.42
+2026-10-25,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,206.77,5607,5224,22,1,356.99
+2026-10-26,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,188.53,4925,4574,20,1,325.82
+2026-10-27,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,199.47,4922,4554,20,1,324.49
+2026-10-28,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,195.30,5013,4621,20,1,324.16
+2026-10-29,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,183.69,4912,4511,21,1,322.98
+2026-10-30,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,190.83,4868,4452,19,1,285.69
+2026-10-31,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,195.73,4780,4352,19,1,315.11
+2026-11-01,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,200.59,5336,4837,23,1,349.76
+2026-11-02,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,220.48,5666,5113,22,1,346.25
+2026-11-03,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,221.60,5759,5172,23,1,325.09
+2026-11-04,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,211.63,5190,4638,22,1,352.54
+2026-11-05,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,229.78,5768,5127,24,1,373.79
+2026-11-06,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,196.46,5147,4551,20,1,318.43
+2026-11-07,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,192.28,4853,4268,19,1,310.08
+2026-11-08,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,213.40,5348,4677,20,1,299.20
+2026-11-09,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Broad,Static - Grade Bump,OUTCOME_LEADS,230.04,5696,4953,23,1,367.32
+2026-10-13,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,372.63,11795,11795,75,4,1361.91
+2026-10-14,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,351.99,10466,10464,61,4,1150.86
+2026-10-15,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,380.73,11353,11345,65,4,1233.37
+2026-10-16,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,359.50,10429,10414,58,3,953.33
+2026-10-17,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,341.36,10656,10628,62,4,1123.53
+2026-10-18,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,356.17,10280,10241,64,4,1196.73
+2026-10-19,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,348.08,10338,10283,62,3,1004.91
+2026-10-20,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,349.19,10465,10392,62,3,1015.43
+2026-10-21,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,391.04,12166,12058,74,4,1329.28
+2026-10-22,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,361.58,10489,10374,62,4,1147.72
+2026-10-23,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,315.65,9911,9780,60,3,1046.26
+2026-10-24,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,353.45,10306,10145,60,3,1062.46
+2026-10-25,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,338.21,9987,9805,57,3,1063.81
+2026-10-26,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,333.66,9672,9469,58,3,966.36
+2026-10-27,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,304.41,9501,9274,55,3,946.28
+2026-10-28,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,312.95,9229,8980,52,3,937.64
+2026-10-29,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,349.89,10055,9751,62,3,1001.54
+2026-10-30,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,328.72,9717,9390,55,3,938.51
+2026-10-31,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,326.07,9938,9569,54,3,896.46
+2026-11-01,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,339.27,9953,9548,56,3,1013.34
+2026-11-02,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,328.91,9922,9480,58,3,956.31
+2026-11-03,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,377.10,11169,10628,65,3,1100.31
+2026-11-04,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,348.83,10835,10267,66,4,1129.08
+2026-11-05,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,400.02,12166,11478,68,3,1069.52
+2026-11-06,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,367.02,10434,9800,61,3,1031.85
+2026-11-07,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,369.81,10538,9851,60,3,1081.74
+2026-11-08,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,381.68,10952,10191,61,3,1020.03
+2026-11-09,act_4155,Brightline Tutoring,Back-to-School - Parents,Parents - Lookalike 2%,Static - Parent Quote,OUTCOME_LEADS,366.56,11124,10300,64,3,996.44
+2026-10-13,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,225.19,7313,7170,85,4,1110.45
+2026-10-14,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,236.81,8201,8039,105,4,1233.08
+2026-10-15,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,245.43,8303,8136,106,4,1322.38
+2026-10-16,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,220.17,7316,7166,87,3,961.91
+2026-10-17,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,218.69,7392,7235,88,3,1044.49
+2026-10-18,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,241.26,8000,7825,93,4,1136.53
+2026-10-19,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,219.61,6947,6789,86,3,985.51
+2026-10-20,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,226.05,7258,7085,87,4,1075.23
+2026-10-21,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,221.74,7123,6945,83,3,1022.94
+2026-10-22,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,249.51,8193,7978,101,4,1257.46
+2026-10-23,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,232.48,8075,7852,95,4,1232.85
+2026-10-24,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,233.03,7498,7280,90,4,1111.90
+2026-10-25,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,221.14,7555,7324,91,4,1106.46
+2026-10-26,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,229.92,7868,7614,95,3,1038.24
+2026-10-27,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,233.15,8004,7731,88,3,1012.14
+2026-10-28,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,198.93,6436,6204,75,3,933.89
+2026-10-29,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,232.94,7398,7117,90,3,983.92
+2026-10-30,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,201.23,6824,6551,78,3,955.76
+2026-10-31,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,220.96,7406,7093,83,4,1057.06
+2026-11-01,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,216.23,7213,6892,88,4,1081.96
+2026-11-02,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,0.00,0,0,0,0,0.00
+2026-11-03,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,0.00,0,0,0,0,0.00
+2026-11-04,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,0.00,0,0,0,0,0.00
+2026-11-05,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,0.00,0,0,0,0,0.00
+2026-11-06,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,0.00,0,0,0,0,0.00
+2026-11-07,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,0.00,0,0,0,0,0.00
+2026-11-08,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,0.00,0,0,0,0,0.00
+2026-11-09,act_4155,Brightline Tutoring,Open House - Nov,Open House - 15km,Event - Open House,OUTCOME_LEADS,0.00,0,0,0,0,0.00
